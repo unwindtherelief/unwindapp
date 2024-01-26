@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lnrweekdays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal"
+        android:weightSum="7">
+
+        <LinearLayout
+            android:id="@+id/llSunday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSunday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvSundayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llmonday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvmonday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvmondayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTuesday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvTuesdayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llwednesday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvwednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvwednesdayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llthursday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvthursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvthursdayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llfriday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvfriday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvfridayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSaturday"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_unselected_date"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSaturday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="Sun"
+                android:textColor="@color/black_50" />
+
+            <TextView
+                android:id="@+id/tvSaturDateday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/alata_regular"
+                android:text="1"
+                android:textColor="@color/black_50" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/lnrweekdays">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp">
+
+            <TextView
+                android:id="@+id/progresscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/alata_regular"
+                android:gravity="center_horizontal"
+                android:text="60%"
+                android:textColor="@color/black_50"
+                android:textSize="@dimen/_25ssp" />
+
+            <ImageView
+
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_below="@id/progresscount"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/checkscore_btn" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_230sdp"
+            android:layout_centerHorizontal="true"
+            android:indeterminateOnly="false"
+            android:progress="60"
+            android:progressDrawable="@drawable/circle"
+            android:rotation="90"
+            tools:progress="60" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

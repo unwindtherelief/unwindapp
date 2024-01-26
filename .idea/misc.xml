@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_music.xml" value="0.16666666666666666" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_home.xml" value="0.1788693234476367" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_music.xml" value="0.14666666666666667" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/bg_message_received.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/bg_message_sent.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/bg_weekday.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/bottom_nav_selected_color.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/bubble_bot.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/bubble_user.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/circle.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/roundbg.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/roundbutton.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/drawable/roundedittext.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_chatbot.xml" value="0.16666666666666666" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_forgotpassword.xml" value="0.17552083333333332" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_otp.xml" value="0.16666666666666666" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_reset_password.xml" value="0.14666666666666667" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_signup.xml" value="0.14666666666666667" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/activity_welcome.xml" value="0.16666666666666666" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/fragment_chart_data.xml" value="0.16145833333333334" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/fragment_collection.xml" value="0.16145833333333334" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/fragment_community.xml" value="0.17552083333333332" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/fragment_profile.xml" value="0.16145833333333334" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/fragment_progress_fragent.xml" value="0.14666666666666667" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/item_chat_bot.xml" value="0.4466666666666667" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/item_chat_user.xml" value="0.14074074074074075" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/item_message.xml" value="0.1" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/layout/popup_gender.xml" value="0.17552083333333332" />
+        <entry key="..\:/yoga_project/Depressionrelief/app/src/main/res/menu/bottom_nav_menu.xml" value="0.16666666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

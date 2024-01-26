@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcomimg"
+    tools:context=".launch.WelcomeActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/belowspace"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alata_regular"
+            android:text="Feeling stuck?"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_35ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/alata_regular"
+            android:text="Learn how to surf on the waves \nof emotions with our app."
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp" />
+
+        <ImageView
+            android:id="@+id/btnstart"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/letsbeginbtn" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/belowspace"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

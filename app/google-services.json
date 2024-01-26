@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "876689171654",
+    "project_id": "depression-relief",
+    "storage_bucket": "depression-relief.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876689171654:android:f48673a3147e449b7163c7",
+        "android_client_info": {
+          "package_name": "com.depression.relief.depressionrelief"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqc_lCLgcKhb9IBBgqtGOmgRpp5SkgjCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
