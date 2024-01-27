@@ -1,20 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/_6sdp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_145sdp"
+        android:layout_height="@dimen/_125sdp"
+        android:elevation="@dimen/_3sdp"
+        app:cardCornerRadius="@dimen/_15sdp">
+
+        <ImageView
+            android:id="@+id/imageMusic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/welcomimg" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:fontFamily="@font/alata_regular"
+        android:text="Instant Anxienty Relilef"
+        android:textAlignment="gravity"
+        android:textColor="@color/apptextcolor3"
+        android:textSize="@dimen/_10ssp"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageMusic"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
 
 </LinearLayout>

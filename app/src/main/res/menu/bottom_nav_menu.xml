@@ -6,16 +6,20 @@
         android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
+        android:id="@+id/exploretab"
+        android:icon="@drawable/ic_explore"
+        android:title="Explore" />
+    <item
+        android:id="@+id/journaltab"
+        android:icon="@drawable/ic_journal"
+        android:title="Journal" />
+    <item
         android:id="@+id/communitytab"
-        android:icon="@drawable/ic_comunity"
+        android:icon="@drawable/ic_community"
         android:title="Community" />
     <item
-        android:id="@+id/collectiontab"
-        android:icon="@drawable/ic_collection"
-        android:title="Collection" />
-    <item
-        android:id="@+id/usertab"
-        android:icon="@drawable/ic_user"
+        android:id="@+id/profiletab"
+        android:icon="@drawable/ic_profile"
         android:title="Profile" />
 
 </menu>

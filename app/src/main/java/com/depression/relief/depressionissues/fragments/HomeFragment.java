@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.activities.MusicActivity;
 import com.depression.relief.depressionissues.adapters.ViewPagerAdapter;
@@ -45,7 +46,6 @@ public class HomeFragment extends Fragment {
     private List<MusicData> musicDataList;
 
 
-
     public HomeFragment() {
     }
 
@@ -58,12 +58,10 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        viewPager2 = view.findViewById(R.id.viewPager2);
-        dotsIndicator = view.findViewById(R.id.dotsIndicator);
         musicrecyclerview = view.findViewById(R.id.musicrecyclerview);
         chatbot = view.findViewById(R.id.chatbot);
 
-        musicrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+        musicrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         musicDataList = new ArrayList<>();
         musicAdapter = new MusicAdapter(musicDataList);
         musicrecyclerview.setAdapter(musicAdapter);
@@ -79,14 +77,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        setupViewPager();
-        dotsIndicator.setViewPager2(viewPager2);
+//        setupViewPager();
+//        dotsIndicator.setViewPager2(viewPager2);
 
         return view;
     }
+
     private void fetchDataFromApi() {
 
-        String url = "https://parmarvivek123.github.io/unwindmusicapi/unwindmusicapi.json";
+        String url = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -118,6 +117,7 @@ public class HomeFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         queue.add(request);
     }
+
     private class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
 
         private List<MusicData> musicList;
@@ -138,11 +138,12 @@ public class HomeFragment extends Fragment {
             MusicData musicData = musicList.get(position);
             holder.textTitle.setText(musicData.getMusicTitle());
             Picasso.get().load(musicData.getImage()).into(holder.imageMusic);
+//            Glide.with(getContext()).load(musicData.getImage()).into(holder.imageMusic);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), MusicActivity.class);
-                    intent.putExtra("musicData", (Parcelable) musicData);
+                    intent.putExtra("musicData", musicData);
                     startActivity(intent);
                 }
             });
@@ -164,6 +165,7 @@ public class HomeFragment extends Fragment {
             }
         }
     }
+
     private void setupViewPager() {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new ProgressFragment());

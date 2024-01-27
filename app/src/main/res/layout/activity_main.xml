@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/appbg"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -18,7 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
         android:backgroundTint="@color/white"
+        app:itemIconSize="@dimen/_15sdp"
         app:itemIconTint="@drawable/bottom_nav_selected_color"
         app:itemTextColor="@drawable/bottom_nav_selected_color"
         app:menu="@menu/bottom_nav_menu" />

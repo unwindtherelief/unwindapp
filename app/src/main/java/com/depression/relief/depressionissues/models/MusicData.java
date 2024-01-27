@@ -1,6 +1,8 @@
 package com.depression.relief.depressionissues.models;
 
-public class MusicData {
+import java.io.Serializable;
+
+public class MusicData implements Serializable {
     private int musicId;
     private String musicTitle;
     private String image;

@@ -9,19 +9,22 @@ import androidx.fragment.app.Fragment;
 
 import com.depression.relief.depressionissues.R;
 
-public class CollectionFragment extends Fragment {
+public class ExploreFragment extends Fragment {
 
-    public CollectionFragment() {
+    public ExploreFragment() {
+        // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_collection, container, false);
+        View view = inflater.inflate(R.layout.fragment_explore, container, false);
         return view;
     }
 }

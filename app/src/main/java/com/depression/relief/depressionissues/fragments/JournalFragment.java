@@ -1,17 +1,18 @@
 package com.depression.relief.depressionissues.fragments;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
-
 import com.depression.relief.depressionissues.R;
 
-public class CommunityFragment extends Fragment {
+public class JournalFragment extends Fragment {
 
-    public CommunityFragment() {
+    public JournalFragment() {
     }
 
     @Override
@@ -21,7 +22,7 @@ public class CommunityFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_community, container, false);
+        View view = inflater.inflate(R.layout.fragment_journal, container, false);
         return view;
     }
 }
