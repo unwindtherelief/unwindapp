@@ -25,6 +25,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.MusicListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MusicActivity"
             android:exported="false" />
         <activity

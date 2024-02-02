@@ -542,7 +542,7 @@
                     android:textSize="@dimen/_18ssp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/musicrecyclerview"
+                    android:id="@+id/musiccategoryListView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"

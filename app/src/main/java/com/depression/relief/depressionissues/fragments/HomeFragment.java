@@ -1,8 +1,10 @@
 package com.depression.relief.depressionissues.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,37 +15,36 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.activities.MusicActivity;
+import com.depression.relief.depressionissues.adapters.CategoryAdapter;
 import com.depression.relief.depressionissues.adapters.ViewPagerAdapter;
 import com.depression.relief.depressionissues.ai.ChatbotActivity;
+import com.depression.relief.depressionissues.models.Category;
 import com.depression.relief.depressionissues.models.MusicData;
 import com.squareup.picasso.Picasso;
-import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    RecyclerView musicrecyclerview;
+    RecyclerView musiccategoryListView;
     ImageView chatbot;
-    private ViewPager2 viewPager2;
-    private WormDotsIndicator dotsIndicator;
-    private MusicAdapter musicAdapter;
-    private List<MusicData> musicDataList;
+    private CategoryAdapter categoryAdapter;
+    private ArrayList<Category> categoryList;
+    private static final String API_URL = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
+    private static final String CACHE_KEY = "api_data";
 
 
     public HomeFragment() {
@@ -58,16 +59,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        musicrecyclerview = view.findViewById(R.id.musicrecyclerview);
+        musiccategoryListView = view.findViewById(R.id.musiccategoryListView);
         chatbot = view.findViewById(R.id.chatbot);
 
-        musicrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-        musicDataList = new ArrayList<>();
-        musicAdapter = new MusicAdapter(musicDataList);
-        musicrecyclerview.setAdapter(musicAdapter);
+        categoryList = new ArrayList<>();
+        categoryAdapter = new CategoryAdapter(getActivity(), categoryList);
 
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
+        musiccategoryListView.setLayoutManager(layoutManager);
+        musiccategoryListView.setAdapter(categoryAdapter);
 
-        fetchDataFromApi();
+        // Fetch data from the API
+        fetchDataFromAPI();
 
         chatbot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,13 +79,118 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-//        setupViewPager();
-//        dotsIndicator.setViewPager2(viewPager2);
-
         return view;
     }
+/*
+    private void fetchDataFromAPI() {
+        new Thread(() -> {
+            try {
+                URL url = new URL("https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.connect();
 
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+
+                String jsonString = stringBuilder.toString();
+                parseJsonData(jsonString);
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }*/
+
+    private void fetchDataFromAPI() {
+        String cachedData = loadJsonFromCache(CACHE_KEY);
+        if (cachedData != null) {
+            // Use cached data if available
+            parseJsonData(cachedData);
+        } else {
+            new Thread(() -> {
+                try {
+                    URL url = new URL(API_URL);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    httpURLConnection.setRequestMethod("GET");
+                    httpURLConnection.connect();
+
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(line);
+                    }
+
+                    String jsonString = stringBuilder.toString();
+
+                    saveJsonToCache(CACHE_KEY, jsonString);
+
+                    getActivity().runOnUiThread(() -> parseJsonData(jsonString));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+    }
+
+    private void parseJsonData(String jsonString) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONArray categoriesArray = jsonObject.getJSONArray("categories");
+
+            for (int i = 0; i < categoriesArray.length(); i++) {
+                JSONObject categoryObject = categoriesArray.getJSONObject(i);
+                int categoryId = categoryObject.getInt("category_id");
+                String categoryName = categoryObject.getString("category_name");
+                String categoryImage = categoryObject.getString("category_image");
+
+                Category category = new Category(categoryId, categoryName, categoryImage);
+                categoryList.add(category);
+            }
+            getActivity().runOnUiThread(() -> categoryAdapter.notifyDataSetChanged());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String loadJsonFromCache(String key) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyCache", MODE_PRIVATE);
+        return sharedPreferences.getString(key, null);
+    }
+
+    private void saveJsonToCache(String key, String json) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyCache", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, json);
+        editor.apply();
+    }
+
+/*
+    private void parseJsonData(String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        JSONArray categoriesArray = jsonObject.getJSONArray("categories");
+
+        for (int i = 0; i < categoriesArray.length(); i++) {
+            JSONObject categoryObject = categoriesArray.getJSONObject(i);
+            int categoryId = categoryObject.getInt("category_id");
+            String categoryName = categoryObject.getString("category_name");
+            String categoryImage = categoryObject.getString("category_image");
+
+            Category category = new Category(categoryId, categoryName, categoryImage);
+            categoryList.add(category);
+        }
+//        runOnUiThread(() -> categoryAdapter.notifyDataSetChanged());
+    }*/
+
+/*
     private void fetchDataFromApi() {
 
         String url = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
@@ -117,6 +225,7 @@ public class HomeFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         queue.add(request);
     }
+*/
 
     private class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
 
@@ -138,7 +247,6 @@ public class HomeFragment extends Fragment {
             MusicData musicData = musicList.get(position);
             holder.textTitle.setText(musicData.getMusicTitle());
             Picasso.get().load(musicData.getImage()).into(holder.imageMusic);
-//            Glide.with(getContext()).load(musicData.getImage()).into(holder.imageMusic);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -160,18 +268,9 @@ public class HomeFragment extends Fragment {
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                textTitle = itemView.findViewById(R.id.textTitle);
+                textTitle = itemView.findViewById(R.id.musicTitle);
                 imageMusic = itemView.findViewById(R.id.imageMusic);
             }
         }
-    }
-
-    private void setupViewPager() {
-        List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new ProgressFragment());
-        fragmentList.add(new ChartDataFragment());
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(this, fragmentList);
-        viewPager2.setAdapter(adapter);
     }
 }
