@@ -7,16 +7,9 @@
     android:background="@color/white"
     tools:context=".activities.MusicListActivity">
 
-
-    <TextView
-        android:id="@+id/textofcategory"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/musicRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/textcolor"
-        android:text="Insonmia"
-        android:gravity="center_horizontal"
-        android:layout_centerVertical="true"
-        android:textSize="@dimen/_20ssp" />
-
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

@@ -21,7 +21,7 @@ import okhttp3.Response;
 public class ChatGPTApi {
 
     private static final String GPT3_ENDPOINT = "https://api.openai.com/v1/completions";
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "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";
 /*
     public static void sendRequest(String userMessage, ChatGPTCallback callback) {
         OkHttpClient client = new OkHttpClient();
@@ -81,7 +81,7 @@ public class ChatGPTApi {
         JsonObject jsonInput = new JsonObject();
         jsonInput.addProperty("prompt", userMessage);
         jsonInput.addProperty("max_tokens", 100);
-        jsonInput.addProperty("model", "text-davinci-003"); // Add the model parameter
+        jsonInput.addProperty("model", "text-davinci-codex"); // Add the model parameter
 
         // Log the request body for debugging
         System.out.println("Request body: " + jsonInput.toString());
