@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/category_image_view"
-        android:layout_width="@dimen/_150sdp"
+        android:layout_width="@dimen/_160sdp"
         android:layout_height="@dimen/_130sdp"
         android:scaleType="fitXY"
         android:src="@drawable/welcomimg" />

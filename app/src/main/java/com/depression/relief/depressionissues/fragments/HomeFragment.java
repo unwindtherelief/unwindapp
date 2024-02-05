@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
     private CategoryAdapter categoryAdapter;
     private ArrayList<Category> categoryList;
     private static final String API_URL = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
-    private static final String QUOTE_API = "https://unwindtherelief.github.io/quotesapi/quotesdata.json";
+    private static final String QUOTE_API = "https://raw.githubusercontent.com/unwindtherelief/quotesapi/main/quotesdata.json";
     private static final String CACHE_KEY = "api_data";
     TextView quotetextview;
 
@@ -103,41 +103,28 @@ public class HomeFragment extends Fragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = dateFormat.format(currentDate);
 
-        String cacheKey = "quote_" + formattedDate; // Use a unique cache key for each day
-        String cachedQuote = loadJsonFromCache(cacheKey);
-        if (cachedQuote != null) {
-            try {
-                String quote = new JSONObject(cachedQuote).getJSONArray("quotes").getJSONObject(0).getString("text");
-                // Set the cached quote to the TextView
-                quotetextview.setText(quote);
-            } catch (JSONException e) {
-                Log.e("JSON Error", e.getMessage());
-            }
-        } else {
-            String urlWithDate = QUOTE_API + "?date=" + formattedDate;
-            RequestQueue queue = Volley.newRequestQueue(getActivity());
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                    Request.Method.GET, urlWithDate, null,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-                                String quote = response.getJSONArray("quotes").getJSONObject(0).getString("text");
-                                quotetextview.setText(quote);
-                                saveJsonToCache(cacheKey, response.toString());
-                            } catch (JSONException e) {
-                                Log.e("JSON Error", e.getMessage());
-                            }
+        String urlWithDate = QUOTE_API + "?date=" + formattedDate;
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET, urlWithDate, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            String quote = response.getJSONArray("quotes").getJSONObject(0).getString("text");
+                            quotetextview.setText(quote);
+                        } catch (JSONException e) {
+                            Log.e("JSON Error", e.getMessage());
                         }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.e("Volley Error", error.getMessage());
-                        }
-                    });
-            queue.add(jsonObjectRequest);
-        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Volley Error", error.getMessage());
+                    }
+                });
+        queue.add(jsonObjectRequest);
     }
 
 
