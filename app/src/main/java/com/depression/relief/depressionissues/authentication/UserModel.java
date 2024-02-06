@@ -2,7 +2,6 @@ package com.depression.relief.depressionissues.authentication;
 
 public class UserModel {
     private String firstname;
-    private String lastname;
     private String email;
     private String completeNumber;
     private String gender;
@@ -12,9 +11,8 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(String firstname, String lastname, String email, String completeNumber, String gender, String dateOfBirth) {
+    public UserModel(String firstname, String email, String completeNumber, String gender, String dateOfBirth) {
         this.firstname = firstname;
-        this.lastname = lastname;
         this.email = email;
         this.completeNumber = completeNumber;
         this.gender = gender;
@@ -27,14 +25,6 @@ public class UserModel {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     public String getEmail() {

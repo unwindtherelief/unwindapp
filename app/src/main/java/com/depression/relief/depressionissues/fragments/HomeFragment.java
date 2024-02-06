@@ -2,6 +2,7 @@ package com.depression.relief.depressionissues.fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -103,28 +104,38 @@ public class HomeFragment extends Fragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = dateFormat.format(currentDate);
 
-        String urlWithDate = QUOTE_API + "?date=" + formattedDate;
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET, urlWithDate, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            String quote = response.getJSONArray("quotes").getJSONObject(0).getString("text");
-                            quotetextview.setText(quote);
-                        } catch (JSONException e) {
-                            Log.e("JSON Error", e.getMessage());
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String lastFetchedDate = sharedPreferences.getString("lastFetchedDate", "");
+
+        if (!formattedDate.equals(lastFetchedDate)) {
+            String urlWithDate = QUOTE_API + "?date=" + formattedDate;
+            RequestQueue queue = Volley.newRequestQueue(getActivity());
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.GET, urlWithDate, null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                String quote = response.getJSONArray("quotes").getJSONObject(0).getString("text");
+                                quotetextview.setText(quote);
+
+                                // Save the current date as last fetched date
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("lastFetchedDate", formattedDate);
+                                editor.apply();
+                            } catch (JSONException e) {
+                                Log.e("JSON Error", e.getMessage());
+                            }
                         }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Volley Error", error.getMessage());
-                    }
-                });
-        queue.add(jsonObjectRequest);
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("Volley Error", error.getMessage());
+                        }
+                    });
+            queue.add(jsonObjectRequest);
+        }
     }
 
 
@@ -192,105 +203,4 @@ public class HomeFragment extends Fragment {
         editor.putString(key, json);
         editor.apply();
     }
-
-/*
-    private void parseJsonData(String jsonString) throws JSONException {
-        JSONObject jsonObject = new JSONObject(jsonString);
-        JSONArray categoriesArray = jsonObject.getJSONArray("categories");
-
-        for (int i = 0; i < categoriesArray.length(); i++) {
-            JSONObject categoryObject = categoriesArray.getJSONObject(i);
-            int categoryId = categoryObject.getInt("category_id");
-            String categoryName = categoryObject.getString("category_name");
-            String categoryImage = categoryObject.getString("category_image");
-
-            Category category = new Category(categoryId, categoryName, categoryImage);
-            categoryList.add(category);
-        }
-//        runOnUiThread(() -> categoryAdapter.notifyDataSetChanged());
-    }*/
-
-/*
-    private void fetchDataFromApi() {
-
-        String url = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray musicArray = response.getJSONArray("music_data");
-                            for (int i = 0; i < musicArray.length(); i++) {
-                                JSONObject musicObject = musicArray.getJSONObject(i);
-                                int musicId = musicObject.getInt("music_id");
-                                String musicTitle = musicObject.getString("music_title");
-                                String image = musicObject.getString("image");
-                                String sound = musicObject.getString("sound");
-
-                                musicDataList.add(new MusicData(musicId, musicTitle, image, sound));
-                            }
-                            musicAdapter.notifyDataSetChanged();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        queue.add(request);
-    }
-*/
-/*
-    private class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
-
-        private List<MusicData> musicList;
-
-        public MusicAdapter(List<MusicData> musicList) {
-            this.musicList = musicList;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_music, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            MusicData musicData = musicList.get(position);
-            holder.textTitle.setText(musicData.getMusicTitle());
-            Picasso.get().load(musicData.getImage()).into(holder.imageMusic);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), MusicActivity.class);
-                    intent.putExtra("musicData", musicData);
-                    startActivity(intent);
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return musicList.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView textTitle;
-            ImageView imageMusic;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                textTitle = itemView.findViewById(R.id.musicTitle);
-                imageMusic = itemView.findViewById(R.id.imageMusic);
-            }
-        }
-    }*/
 }

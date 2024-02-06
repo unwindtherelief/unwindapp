@@ -63,7 +63,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private void signup() {
         String firstname = binding.editTextFirstName.getText().toString().trim();
-        String lastname = binding.editTextLastName.getText().toString().trim();
+//        String lastname = binding.editTextLastName.getText().toString().trim();
         String email = binding.editTextEmail.getText().toString().trim();
         String password = binding.editTextPassword.getText().toString().trim();
         String dateOfBirth = binding.textViewDateOfBirth.getText().toString().trim();
@@ -77,9 +77,9 @@ public class SignupActivity extends AppCompatActivity {
 
         if (firstname.isEmpty()) {
             binding.editTextFirstName.setError("Please enter first name!");
-        } else if (lastname.isEmpty()) {
+        } /*else if (lastname.isEmpty()) {
             binding.editTextLastName.setError("Please enter last name!");
-        } else if (email.isEmpty()) {
+        }*/ else if (email.isEmpty()) {
             binding.editTextEmail.setError("Please enter email address!");
         } else if (password.isEmpty()) {
             binding.editTextPassword.setError("Please enter password!");
@@ -122,7 +122,7 @@ public class SignupActivity extends AppCompatActivity {
                 });
 */
 
-            UserModel usermodel = new UserModel(firstname, lastname, email, completeNumber, gender, dateOfBirth);
+            UserModel usermodel = new UserModel(firstname, email, completeNumber, gender, dateOfBirth);
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {

@@ -37,7 +37,6 @@ public class MusicListActivity extends AppCompatActivity {
     private MusicListAdapter musicDataAdapter;
     RecyclerView musicRecyclerview;
 
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +57,13 @@ public class MusicListActivity extends AppCompatActivity {
         musicRecyclerview.setLayoutManager(layoutManager);
         musicRecyclerview.setAdapter(musicDataAdapter);
 
-        fetchCategoryId(categoryId);
-
+        fetchDataFromAPI(categoryId);
     }
 
-    private void fetchCategoryId(int categoryId) {
-        if (this.categoryId == categoryId) {
-            fetchDataFromAPI();
-        } else {
-            Toast.makeText(this, "Server is busy for please wait!", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void fetchDataFromAPI() {
+    private void fetchDataFromAPI(int categoryId) {
         String cachedData = loadJsonFromCache(CACHE_KEY);
         if (cachedData != null) {
-            parseJsonData(cachedData);
+            parseJsonData(cachedData, categoryId);
         } else {
             new Thread(() -> {
                 try {
@@ -95,59 +85,39 @@ public class MusicListActivity extends AppCompatActivity {
 
                     saveJsonToCache(CACHE_KEY, jsonString);
 
-                    runOnUiThread(() -> parseJsonData(jsonString));
+                    runOnUiThread(() -> parseJsonData(jsonString, categoryId));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }).start();
         }
     }
-/*
-    private void parseJsonData(String jsonString) {
+
+    private void parseJsonData(String jsonString, int categoryId) {
         try {
-            JSONObject jsonObject = new JSONObject(jsonString);
-            JSONArray musicArray = jsonObject.getJSONArray("music_data");
-
-            for (int i = 0; i < musicArray.length(); i++) {
-                JSONObject musicObject = musicArray.getJSONObject(i);
-                int musicId = musicObject.getInt("music_id");
-                String musicTitle = musicObject.getString("music_title");
-                String musicImage = musicObject.getString("image");
-                String sound = musicObject.getString("sound");
-
-                MusicData musicData = new MusicData(musicId, musicTitle, musicImage, sound);
-                musicdatalist.add(musicData);
+            JSONArray categoriesArray = new JSONObject(jsonString).getJSONArray("categories");
+            for (int i = 0; i < categoriesArray.length(); i++) {
+                JSONObject categoryObject = categoriesArray.getJSONObject(i);
+                if (categoryObject.getInt("category_id") == categoryId) {
+                    JSONArray musicDataArray = categoryObject.getJSONArray("music_data");
+                    for (int j = 0; j < musicDataArray.length(); j++) {
+                        JSONObject musicObject = musicDataArray.getJSONObject(j);
+                        int musicId = musicObject.getInt("music_id");
+                        String musicTitle = musicObject.getString("music_title");
+                        String musicImage = musicObject.getString("image");
+                        String sound = musicObject.getString("sound");
+                        MusicData musicData = new MusicData(musicId, musicTitle, musicImage, sound);
+                        musicdatalist.add(musicData);
+                    }
+                    runOnUiThread(() -> musicDataAdapter.notifyDataSetChanged());
+                    break;
+                }
             }
-//            runOnUiThread(() -> MusicListAdapter.notifyDataSetChanged());
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }*/
-
-    private void parseJsonData(String jsonString) {
-        try {
-            JSONArray musicDataArray = new JSONObject(jsonString).getJSONArray("music_data");
-
-            for (int i = 0; i < musicDataArray.length(); i++) {
-                JSONObject musicObject = musicDataArray.getJSONObject(i);
-                int musicId = musicObject.getInt("music_id");
-                String musicTitle = musicObject.getString("music_title");
-                String musicImage = musicObject.getString("image");
-                String sound = musicObject.getString("sound");
-
-                MusicData musicData = new MusicData(musicId, musicTitle, musicImage, sound);
-                musicdatalist.add(musicData);
-            }
-
-            runOnUiThread(() -> musicDataAdapter.notifyDataSetChanged());
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private String loadJsonFromCache(String key) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyCache", MODE_PRIVATE);
@@ -160,5 +130,4 @@ public class MusicListActivity extends AppCompatActivity {
         editor.putString(key, json);
         editor.apply();
     }
-
 }

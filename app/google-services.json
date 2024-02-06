@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "876689171654",
-    "project_id": "depression-relief",
-    "storage_bucket": "depression-relief.appspot.com"
+    "project_number": "856699797997",
+    "project_id": "unwind-break-free-from-stress",
+    "storage_bucket": "unwind-break-free-from-stress.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:876689171654:android:f48673a3147e449b7163c7",
+        "mobilesdk_app_id": "1:856699797997:android:5b84366761c7df1351a7e4",
         "android_client_info": {
           "package_name": "com.depression.relief.depressionrelief"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "856699797997-j2ghjd409kfpmrdlp53ogdlqo2lgfcj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.depression.relief.depressionrelief",
+            "certificate_hash": "5d431834aaefdeffd526bc4436e15979d38d9b28"
+          }
+        },
+        {
+          "client_id": "856699797997-ipdlk5amgbhj4q0s89dg099va55mv1sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDqc_lCLgcKhb9IBBgqtGOmgRpp5SkgjCM"
+          "current_key": "AIzaSyBU6p5qD_YDq0SoGF61cevtn8-z1x9ZXok"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856699797997-ipdlk5amgbhj4q0s89dg099va55mv1sk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

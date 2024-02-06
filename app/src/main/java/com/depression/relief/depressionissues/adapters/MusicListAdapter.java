@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.activities.MusicListActivity;
+import com.depression.relief.depressionissues.activities.MusicPlayActivity;
 import com.depression.relief.depressionissues.models.Category;
 import com.depression.relief.depressionissues.models.MusicData;
 
@@ -44,7 +45,7 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MusicListActivity.class);
+                Intent intent = new Intent(context, MusicPlayActivity.class);
                 intent.putExtra("music_id", musicData.getMusicId());
                 context.startActivity(intent);
             }
