@@ -3,42 +3,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bg"
+    android:background="@drawable/bg_chatbot"
     tools:context=".ai.ChatbotActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/messageInputLayout"
-        android:padding="16dp" />
+        android:layout_above="@+id/messagelayout"
+        android:padding="@dimen/_12sdp" />
 
-    <RelativeLayout
-        android:id="@+id/messageInputLayout"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/messagelayout"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/suggestion1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:background="@drawable/edittextbg"
+            android:fontFamily="@font/josefin_regular"
+            android:gravity="center"
+            android:text="hey!"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/suggestion2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:background="@drawable/edittextbg"
+            android:fontFamily="@font/josefin_regular"
+            android:gravity="center"
+            android:text="I can't stop feeling hopeless !!"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/suggestion3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:background="@drawable/edittextbg"
+            android:fontFamily="@font/josefin_regular"
+            android:gravity="center"
+            android:text="What are some relaxation techniques \nI can try?"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/suggestion4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:background="@drawable/edittextbg"
+            android:fontFamily="@font/josefin_regular"
+            android:gravity="center"
+            android:text="Can you connect me with resources for depression?"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_13ssp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/messagelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#ECEFF1"
-        android:padding="8dp">
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-        <EditText
-            android:id="@+id/userInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/sendButton"
-            android:background="#FFFFFF"
-            android:hint="Type your message here"
-            android:padding="8dp"
-            android:textColor="#000000"
-            android:textColorHint="@color/black_50" />
+        <RelativeLayout
+            android:id="@+id/messageInputLayout"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1.5"
+            android:background="@drawable/roundedsendmsg"
+            android:elevation="@dimen/_10ssp">
 
-        <Button
+            <EditText
+                android:id="@+id/userInput"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="@dimen/_15ssp"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/alata_regular"
+                android:gravity="center_vertical"
+                android:hint="Ask me Anything..."
+                android:textColor="@color/textcolor"
+                android:textColorHint="@color/textcolorhint"
+                android:textSize="@dimen/_13ssp" />
+
+        </RelativeLayout>
+
+        <ImageView
             android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="Send" />
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_sendmessage" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

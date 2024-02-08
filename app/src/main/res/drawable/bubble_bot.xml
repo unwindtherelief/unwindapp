@@ -1,6 +1,9 @@
 <!-- bubble_bot.xml -->
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="8dp"/>
-    <solid android:color="#2196F3"/>
+    <corners
+        android:bottomLeftRadius="@dimen/_8sdp"
+        android:bottomRightRadius="@dimen/_8sdp"
+        android:topRightRadius="@dimen/_8sdp" />
+    <solid android:color="@color/white" />
 </shape>

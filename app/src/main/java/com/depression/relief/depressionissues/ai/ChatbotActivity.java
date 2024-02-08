@@ -36,23 +36,148 @@ public class ChatbotActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendMessage();
+
+                binding.suggestion1.setVisibility(View.GONE);
+                binding.suggestion2.setVisibility(View.GONE);
+                binding.suggestion3.setVisibility(View.GONE);
+                binding.suggestion4.setVisibility(View.GONE);
             }
         });
 
+
+        binding.suggestion1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSuggestion1Message();
+
+                binding.suggestion1.setVisibility(View.GONE);
+                binding.suggestion2.setVisibility(View.GONE);
+                binding.suggestion3.setVisibility(View.GONE);
+                binding.suggestion4.setVisibility(View.GONE);
+            }
+        });
+
+        binding.suggestion2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSuggestion2Message();
+
+                binding.suggestion1.setVisibility(View.GONE);
+                binding.suggestion2.setVisibility(View.GONE);
+                binding.suggestion3.setVisibility(View.GONE);
+                binding.suggestion4.setVisibility(View.GONE);
+            }
+        });
+
+        binding.suggestion3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSuggestion3Message();
+
+                binding.suggestion1.setVisibility(View.GONE);
+                binding.suggestion2.setVisibility(View.GONE);
+                binding.suggestion3.setVisibility(View.GONE);
+                binding.suggestion4.setVisibility(View.GONE);
+            }
+        });
+
+        binding.suggestion4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSuggestion4Message();
+
+                binding.suggestion1.setVisibility(View.GONE);
+                binding.suggestion2.setVisibility(View.GONE);
+                binding.suggestion3.setVisibility(View.GONE);
+                binding.suggestion4.setVisibility(View.GONE);
+            }
+        });
     }
 
-    /*    private void sendMessage() {
-            String userMessage = binding.userInput.getText().toString().trim();
-            binding.userInput.getText().clear();
+    private void sendSuggestion1Message() {
+        String userMessage = binding.suggestion1.getText().toString().trim();
+        binding.userInput.getText().clear();
 
-            addMessage("User", userMessage, true);
 
-            if (containsMedicalKeywords(userMessage)) {
-                sendGPT3Request(userMessage);
-            } else {
-                addMessage("ChatGPT", "Sorry, I can only help with medical issues.", false);
-            }
-        }*/
+        addMessage("User", userMessage, true);
+
+        if (containsWellBeingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you for asking! I'm here to help you. How can I assist you today?", false);
+        } else if (containsWishingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you! Wishing you a great day too!", false);
+        } else if (containsGreetingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Hello! How can I assist you today?", false);
+        } else if (containsMedicalKeywords(userMessage)) {
+            sendGPT3Request(userMessage);
+        } else {
+            addMessage("ChatGPT", "Sorry, I can only help with mental health and well-being topics.", false);
+        }
+
+    }
+
+    private void sendSuggestion2Message() {
+        String userMessage = binding.suggestion2.getText().toString().trim();
+        binding.userInput.getText().clear();
+
+
+        addMessage("User", userMessage, true);
+
+        if (containsWellBeingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you for asking! I'm here to help you. How can I assist you today?", false);
+        } else if (containsWishingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you! Wishing you a great day too!", false);
+        } else if (containsGreetingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Hello! How can I assist you today?", false);
+        } else if (containsMedicalKeywords(userMessage)) {
+            sendGPT3Request(userMessage);
+        } else {
+            addMessage("ChatGPT", "Sorry, I can only help with mental health and well-being topics.", false);
+        }
+
+    }
+
+    private void sendSuggestion3Message() {
+        String userMessage = binding.suggestion3.getText().toString().trim();
+        binding.userInput.getText().clear();
+
+
+        addMessage("User", userMessage, true);
+
+        if (containsWellBeingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you for asking! I'm here to help you. How can I assist you today?", false);
+        } else if (containsWishingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you! Wishing you a great day too!", false);
+        } else if (containsGreetingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Hello! How can I assist you today?", false);
+        } else if (containsMedicalKeywords(userMessage)) {
+            sendGPT3Request(userMessage);
+        } else {
+            addMessage("ChatGPT", "Sorry, I can only help with mental health and well-being topics.", false);
+        }
+
+    }
+
+    private void sendSuggestion4Message() {
+        String userMessage = binding.suggestion4.getText().toString().trim();
+        binding.userInput.getText().clear();
+
+
+        addMessage("User", userMessage, true);
+
+        if (containsWellBeingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you for asking! I'm here to help you. How can I assist you today?", false);
+        } else if (containsWishingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Thank you! Wishing you a great day too!", false);
+        } else if (containsGreetingKeywords(userMessage)) {
+            addMessage("ChatGPT", "Hello! How can I assist you today?", false);
+        } else if (containsMedicalKeywords(userMessage)) {
+            sendGPT3Request(userMessage);
+        } else {
+            addMessage("ChatGPT", "Sorry, I can only help with mental health and well-being topics.", false);
+        }
+
+    }
+
     private void sendMessage() {
         String userMessage = binding.userInput.getText().toString().trim();
         binding.userInput.getText().clear();

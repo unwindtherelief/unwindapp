@@ -12,6 +12,7 @@
     <color name="black_50">#72575656</color>
     <color name="bluetext">#C9172551</color>
     <color name="textcolor">#4C411A</color>
+    <color name="textcolorhint">#CC67592A</color>
     <color name="transparent">#00000000</color>
     <color name="apptextcolor">#92B2C8</color>
     <color name="apptextcolor2">#519ACD</color>
