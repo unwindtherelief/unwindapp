@@ -5,4 +5,13 @@
         <item>Female</item>
         <item>Prefer Not to say</item>
     </string-array>
+    <!-- Add these strings for spinner category -->
+
+
+    <string-array name="category_array">
+        <item>Trending</item>
+        <item>Relationship</item>
+        <!-- Add other categories as needed -->
+    </string-array>
+    <string name="category_prompt">Select a category</string>
 </resources>

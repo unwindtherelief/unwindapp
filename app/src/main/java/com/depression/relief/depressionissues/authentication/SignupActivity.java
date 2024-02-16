@@ -1,15 +1,19 @@
 package com.depression.relief.depressionissues.authentication;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.depression.relief.depressionissues.MainActivity;
+import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.databinding.ActivitySignupBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -17,12 +21,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Random;
 
 public class SignupActivity extends AppCompatActivity {
     ActivitySignupBinding binding;
     private DatePickerDialog.OnDateSetListener dateOfBirthListener;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firestore;
+    private Dialog dialog;
+
+    private static final int[] MALE_IMAGES = {R.drawable.rm1, R.drawable.rm2, R.drawable.rm3, R.drawable.rm4};
+
+    private static final int[] FEMALE_IMAGES = {R.drawable.rfm1, R.drawable.rfm2, R.drawable.rfm3};
 
 
     @Override
@@ -51,10 +61,17 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
+        //dialog for hold user
+
         binding.buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                dialog = new Dialog(SignupActivity.this);
+                dialog.setContentView(LayoutInflater.from(SignupActivity.this).inflate(R.layout.progress_dialog, (ViewGroup) null));
                 signup();
+
+                dialog.show();
             }
         });
 
@@ -91,38 +108,17 @@ public class SignupActivity extends AppCompatActivity {
             binding.editTextMnumber.setError("Please fill complate Mobile number!");
         } else {
 
-/*
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        String userId = firebaseAuth.getCurrentUser().getUid();
 
-                        Map<String, Object> user = new HashMap<>();
-                        user.put("firstName", firstName);
-                        user.put("lastName", lastName);
-                        user.put("email", email);
-                        user.put("mobile", mobile);
-                        user.put("date_of_birth", dateOfBirth);
-                        user.put("gender", gender);
+            int selectedImageResourceId = 0;
+            if (gender.equals("Male") || gender.equals("male")) {
+                selectedImageResourceId = MALE_IMAGES[new Random().nextInt(MALE_IMAGES.length)];
+            } else if (gender.equals("Female") || gender.equals("female")) {
+                selectedImageResourceId = FEMALE_IMAGES[new Random().nextInt(FEMALE_IMAGES.length)];
+            }
 
-                        firestore.collection("users").document(userId)
-                                .set(user)
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(SignupActivity.this, "Signup successful!", Toast.LENGTH_SHORT).show();
+            String selectedImageUrl = "android.resource://" + getPackageName() + "/" + selectedImageResourceId;
 
-                                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(SignupActivity.this, "Signup Failed!" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                });
-                    } else {
-                        Toast.makeText(this, "There is Some Issue!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-*/
-
-            UserModel usermodel = new UserModel(firstname, email, completeNumber, gender, dateOfBirth);
+            UserModel usermodel = new UserModel(firstname, email, completeNumber, gender, dateOfBirth, selectedImageUrl);
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
@@ -134,8 +130,10 @@ public class SignupActivity extends AppCompatActivity {
                                     .addOnCompleteListener(storeTask -> {
                                         if (storeTask.isSuccessful()) {
                                             Toast.makeText(getApplicationContext(), "Signup successful", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
                                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                         } else {
+                                            dialog.dismiss();
                                             Toast.makeText(getApplicationContext(), "Error occurred while storing user data", Toast.LENGTH_SHORT).show();
                                         }
                                     });

@@ -1,0 +1,66 @@
+<!-- popup_comment.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write a comment"
+        android:inputType="textMultiLine"
+        android:maxLines="4" />
+
+    <ImageView
+        android:id="@+id/ivAddImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:contentDescription="Add Image"
+        android:src="@drawable/ic_addimg" />
+
+
+    <!-- Replace RadioGroup with Spinner for category selection -->
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:entries="@array/category_array"
+        android:prompt="@string/category_prompt" />
+
+    <!--<RadioGroup
+        android:id="@+id/radioGroupCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButtonTrending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trending" />
+
+        <RadioButton
+            android:id="@+id/radioButtonRelationship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Relationship" />
+
+        &lt;!&ndash; Add other RadioButton elements for different categories &ndash;&gt;
+
+    </RadioGroup>-->
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:text="Submit" />
+
+</LinearLayout>

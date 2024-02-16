@@ -70,4 +70,10 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.16.0'
 
+    //lottie animation
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    //swipe refreshlayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
 }
