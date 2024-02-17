@@ -39,6 +39,14 @@ public class Comment_mdl {
         return commentimagePath;
     }
 
+    public String getUserimageurl() {
+        return userimageurl;
+    }
+
+    public String getCurrentusername() {
+        return currentusername;
+    }
+
     public void setCommentText(String commentText) {
         this.commentText = commentText;
     }
@@ -55,16 +63,8 @@ public class Comment_mdl {
         this.commentimagePath = commentimagePath;
     }
 
-    public String getUserimageurl() {
-        return userimageurl;
-    }
-
     public void setUserimageurl(String userimageurl) {
         this.userimageurl = userimageurl;
-    }
-
-    public String getCurrentusername() {
-        return currentusername;
     }
 
     public void setCurrentusername(String currentusername) {

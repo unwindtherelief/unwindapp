@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/userimageset"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center_vertical"
@@ -67,16 +68,24 @@
         android:textColor="@color/textcolor"
         android:textSize="@dimen/_13ssp" />
 
-
-    <ImageView
-        android:id="@+id/ivCommentImage"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/commentimagecard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_3sdp"
-        android:background="@drawable/bg_comment"
+        android:background="@color/transparent"
+        android:backgroundTint="@color/transparent"
         android:maxHeight="@dimen/_130sdp"
-        android:scaleType="fitXY"
-        android:src="@drawable/game_playnowbtn" />
+        app:cardBackgroundColor="@color/transparent"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/ivCommentImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/game_playnowbtn" />
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,6 +99,7 @@
             android:layout_height="@dimen/_30sdp" />
 
         <ImageView
+            android:id="@+id/btn_likedislike"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center_vertical"
@@ -97,6 +107,7 @@
             android:src="@drawable/ic_unliked_thumb" />
 
         <TextView
+            android:id="@+id/likedislikecount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.models.Comment_mdl;
 import com.squareup.picasso.Picasso;
@@ -47,12 +48,18 @@ public class CommentDataShowAdapter extends RecyclerView.Adapter<CommentDataShow
         holder.tvTimestamp.setText(sdf.format(comment.getTimestamp()));
 
         // Load comment image using Picasso
+        if (comment.getUserimageurl() != null && !comment.getUserimageurl().isEmpty()) {
+            Glide.with(context).load(comment.getUserimageurl()).into(holder.userimageset);
+        } else {
+            holder.userimageset.setImageResource(R.drawable.rm1);
+        }
 
         if (comment.getImagePath() != null && !comment.getImagePath().isEmpty()) {
             holder.ivCommentImage.setVisibility(View.VISIBLE);
-            Picasso.get().load(comment.getImagePath()).into(holder.ivCommentImage);
+            Glide.with(context).load(comment.getImagePath()).into(holder.ivCommentImage);
         } else {
             holder.ivCommentImage.setVisibility(View.GONE);
+            holder.commentimagecard.setVisibility(View.GONE);
         }
     }
 
@@ -66,6 +73,8 @@ public class CommentDataShowAdapter extends RecyclerView.Adapter<CommentDataShow
         TextView tvUsername;
         TextView tvTimestamp;
         ImageView ivCommentImage;
+        ImageView userimageset;
+        CardView commentimagecard;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +83,8 @@ public class CommentDataShowAdapter extends RecyclerView.Adapter<CommentDataShow
             tvUsername = itemView.findViewById(R.id.tvUsername);
             tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
             ivCommentImage = itemView.findViewById(R.id.ivCommentImage);
+            userimageset = itemView.findViewById(R.id.userimageset);
+            commentimagecard = itemView.findViewById(R.id.commentimagecard);
         }
     }
 }

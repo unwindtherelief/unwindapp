@@ -158,7 +158,7 @@ public class CommunityFragment extends Fragment {
     }
 
 
-    private void saveCommentToFirestore(String commentText, String selectedCategory, String commentimagePath) {
+   /* private void saveCommentToFirestore(String commentText, String selectedCategory, String commentimagePath) {
         // Use the Firebase Firestore instance and collection reference
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference commentsCollection = db.collection("comments");
@@ -173,6 +173,25 @@ public class CommunityFragment extends Fragment {
             Toast.makeText(getActivity(), "Failed to add the comment", Toast.LENGTH_SHORT).show();
         });
 
+    }*/
+
+    private void saveCommentToFirestore(String commentText, String selectedCategory, String commentimagePath) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference commentsCollection = db.collection("comments");
+
+        Comment_mdl newComment = new Comment_mdl(commentText, selectedCategory, new Date(), commentimagePath, currimageimageUrl, currentusername);
+
+        // Set the category for the comment
+        newComment.setSelectedCategory(selectedCategory);
+
+        commentsCollection.add(newComment)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(getActivity(), "Comment added successfully", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("CommentTAG", "saveCommentToFirestore: " + e.getMessage());
+                    Toast.makeText(getActivity(), "Failed to add the comment", Toast.LENGTH_SHORT).show();
+                });
     }
 
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.depression.relief.depressionissues.fragments.RelationshipCommentFragment;
 import com.depression.relief.depressionissues.fragments.TrendingCommentFragment;
 
 public class CommunityPagerAdapter extends FragmentPagerAdapter {
@@ -21,7 +22,7 @@ public class CommunityPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new TrendingCommentFragment();
             case 1:
-                return new TrendingCommentFragment();
+                return new RelationshipCommentFragment();
             default:
                 return new TrendingCommentFragment();
         }
