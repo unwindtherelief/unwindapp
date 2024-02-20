@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ExploreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
+        android:id="@+id/vviewexplore"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp" />
+
+    <ScrollView
+        android:id="@+id/explorescroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/vviewexplore">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_dailyjournal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_3sdp"
+                android:src="@drawable/ic_dailyjournal" />
+
+
+            <ImageView
+                android:id="@+id/btn_dailyaffermation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_3sdp"
+                android:src="@drawable/ic_affermation" />
+
+            <ImageView
+                android:id="@+id/btn_personaltherapy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_3sdp"
+                android:src="@drawable/ic_therapy" />
+
+            <ImageView
+                android:id="@+id/btn_musictreat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_3sdp"
+                android:src="@drawable/ic_musicretreat" />
+
+            <ImageView
+                android:id="@+id/btn_relaxgames"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_3sdp"
+                android:src="@drawable/ic_relaxgames" />
+
+            <ImageView
+                android:id="@+id/btn_mindfulbreath"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_3sdp"
+                android:src="@drawable/ic_mindfulbreathing" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

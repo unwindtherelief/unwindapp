@@ -76,4 +76,8 @@ dependencies {
     //swipe refreshlayout
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
+    //animation
+    implementation 'com.github.AtifSayings:Animatoo:1.0.1'
+
+
 }

@@ -62,6 +62,30 @@ public class TrendingCommentFragment extends Fragment {
         swipeRefreshLayout.setRefreshing(false);
     }
 
+    //old code of fetchAllComments();
+/*
+    private void fetchAllComments() {
+        CollectionReference commentsCollection = db.collection("comments");
+
+        // Query to fetch all comments without filtering by category
+        Query query = commentsCollection.orderBy("timestamp", Query.Direction.DESCENDING);
+
+        query.addSnapshotListener((queryDocumentSnapshots, e) -> {
+            if (e != null) {
+                // Handle the error
+                Log.e("TrendingFragment", "Error fetching comments: " + e.getMessage());
+                return;
+            }
+
+            if (queryDocumentSnapshots != null) {
+                commentList.clear();
+                commentList.addAll(queryDocumentSnapshots.toObjects(Comment_mdl.class));
+                commentDataShowAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+*/
+
     private void fetchAllComments() {
         CollectionReference commentsCollection = db.collection("comments");
 
