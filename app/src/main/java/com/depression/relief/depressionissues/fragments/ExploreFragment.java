@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
+import com.depression.relief.depressionissues.activities.GamesListActivity;
 import com.depression.relief.depressionissues.music.MusicExploreActivity;
 
 public class ExploreFragment extends Fragment {
@@ -63,6 +64,14 @@ public class ExploreFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MusicExploreActivity.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateZoom(getActivity());
+            }
+        });
+        btn_relaxgames.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GamesListActivity.class);
                 startActivity(intent);
                 Animatoo.INSTANCE.animateZoom(getActivity());
             }

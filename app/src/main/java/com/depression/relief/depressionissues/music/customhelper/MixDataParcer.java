@@ -98,20 +98,20 @@ public class MixDataParcer {
     }
 
     private static void createMixCoverItemData(Context context) {
-        mixCoverItemSparseArray.put(201, new ItemCoverer(201, R.drawable.png_rain_on_leaves));
-        mixCoverItemSparseArray.put(202, new ItemCoverer(202, R.drawable.png_spring_rain));
-        mixCoverItemSparseArray.put(203, new ItemCoverer(203, R.drawable.png_rain_on_roof));
-        mixCoverItemSparseArray.put(204, new ItemCoverer(204, R.drawable.png_rain_on_tent));
-        mixCoverItemSparseArray.put(205, new ItemCoverer(205, R.drawable.png_ocean_rain));
-        mixCoverItemSparseArray.put(206, new ItemCoverer(206, R.drawable.png_rain_on_window));
-        mixCoverItemSparseArray.put(207, new ItemCoverer(207, R.drawable.png_rainy_evening));
-        mixCoverItemSparseArray.put(JfifUtil.MARKER_RST0, new ItemCoverer(JfifUtil.MARKER_RST0, R.drawable.png_thunder_storm));
-        mixCoverItemSparseArray.put(209, new ItemCoverer(209, R.drawable.png_wind_rain));
-        mixCoverItemSparseArray.put(210, new ItemCoverer(210, R.drawable.png_rain_cricket));
-        mixCoverItemSparseArray.put(211, new ItemCoverer(211, R.drawable.png_rainy_day));
-        mixCoverItemSparseArray.put(212, new ItemCoverer(212, R.drawable.png_rain_with_piano));
-        mixCoverItemSparseArray.put(213, new ItemCoverer(213, R.drawable.pngrain_in_forest));
-        mixCoverItemSparseArray.put(214, new ItemCoverer(214, R.drawable.png_urban_rain));
+        mixCoverItemSparseArray.put(201, new ItemCoverer(201, R.drawable.rain_with_piano));
+        mixCoverItemSparseArray.put(202, new ItemCoverer(202, R.drawable.png_spring_rain2));
+        mixCoverItemSparseArray.put(203, new ItemCoverer(203, R.drawable.png_sleep));
+        mixCoverItemSparseArray.put(204, new ItemCoverer(204, R.drawable.png_healing));
+        mixCoverItemSparseArray.put(205, new ItemCoverer(205, R.drawable.png_flute));
+        mixCoverItemSparseArray.put(206, new ItemCoverer(206, R.drawable.png_fire));
+        mixCoverItemSparseArray.put(207, new ItemCoverer(207, R.drawable.png_thunder));
+        mixCoverItemSparseArray.put(JfifUtil.MARKER_RST0, new ItemCoverer(JfifUtil.MARKER_RST0, R.drawable.png_piano));
+        mixCoverItemSparseArray.put(209, new ItemCoverer(209, R.drawable.png_heavy_rain));
+        mixCoverItemSparseArray.put(210, new ItemCoverer(210, R.drawable.png_guitar));
+        mixCoverItemSparseArray.put(211, new ItemCoverer(211, R.drawable.png_owl));
+        mixCoverItemSparseArray.put(212, new ItemCoverer(212, R.drawable.png_bird));
+        mixCoverItemSparseArray.put(213, new ItemCoverer(213, R.drawable.png_wind_cheems));
+        mixCoverItemSparseArray.put(214, new ItemCoverer(214, R.drawable.png_wind));
         mixCoverItemSparseArray.put(JfifUtil.MARKER_RST7, new ItemCoverer(JfifUtil.MARKER_RST7, R.drawable.png_light_rain));
     }
 
@@ -325,33 +325,33 @@ public class MixDataParcer {
             // small background adder
 
             case 201:
-                return R.drawable.png_rain_on_leaves;
+                return R.drawable.rain_with_piano;
             case 202:
-                return R.drawable.png_spring_rain;
+                return R.drawable.png_spring_rain2;
             case 203:
-                return R.drawable.png_rain_on_roof;
+                return R.drawable.png_sleep;
             case 204:
-                return R.drawable.png_rain_on_tent;
+                return R.drawable.png_healing;
             case 205:
-                return R.drawable.png_ocean_rain;
+                return R.drawable.png_flute;
             case 206:
-                return R.drawable.png_rain_on_window;
+                return R.drawable.png_fire;
             case 207:
-                return R.drawable.png_rainy_evening;
+                return R.drawable.png_thunder;
             case JfifUtil.MARKER_RST0 /*208*/:
-                return R.drawable.png_thunder_storm;
+                return R.drawable.png_piano;
             case 209:
-                return R.drawable.png_wind_rain;
+                return R.drawable.png_heavy_rain;
             case 210:
-                return R.drawable.png_rain_cricket;
+                return R.drawable.png_guitar;
             case 211:
-                return R.drawable.png_rainy_day;
+                return R.drawable.png_owl;
             case 212:
-                return R.drawable.png_rain_with_piano;
+                return R.drawable.png_bird;
             case 213:
-                return R.drawable.pngrain_in_forest;
+                return R.drawable.png_wind_cheems;
             case 214:
-                return R.drawable.png_urban_rain;
+                return R.drawable.png_wind;
             case JfifUtil.MARKER_RST7 /*215*/:
                 return R.drawable.png_light_rain;
             default:
