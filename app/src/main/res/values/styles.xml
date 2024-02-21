@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TitleText">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="SwitchTheme">
+        <item name="android:colorForeground">@color/white</item>
+        <item name="colorControlActivated">@color/colorThemeYellow</item>
+        <item name="colorSwitchThumbNormal">@color/white</item>
+    </style>
+
+</resources>

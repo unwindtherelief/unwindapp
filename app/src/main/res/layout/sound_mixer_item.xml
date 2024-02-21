@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_120sdp"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:id="@+id/cover_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/cover_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:actualImageScaleType="fitXY"
+            app:failureImage="@drawable/change_sheets"
+            app:failureImageScaleType="fitXY"
+            app:layout_aspectRatio="139.9994%"
+            app:layout_widthPercent="100%"
+            app:placeholderImage="@drawable/change_sheets"
+            app:roundedCornerRadius="12dp" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/cover_image"
+            android:layout_alignBottom="@+id/cover_image"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:visibility="gone"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/mix_sound_tag_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_back_cover"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:paddingStart="6dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/custom"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+</RelativeLayout>

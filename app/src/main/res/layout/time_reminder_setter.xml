@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1b2323"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/custom_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingRight="@dimen/_8sdp"
+        android:text="@string/custom"
+        android:textColor="@color/white_50"
+        android:textSize="@dimen/_16sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/custom_set_time_hour"
+            android:textColor="@color/white_50"
+            android:textSize="@dimen/_16sdp" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/set_time_np_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_110sdp"
+            android:background="@color/transparent"
+            app:np_dividerColor="@color/transparent"
+            app:np_max="23"
+            app:np_min="0"
+            app:np_selectedTextColor="@color/white"
+            app:np_selectedTextSize="@dimen/_16sdp"
+            app:np_textColor="@color/white_50"
+            app:np_textSize="@dimen/_12sdp"
+            app:np_typeface="@string/roboto_light"
+            app:np_value="0"
+            app:np_wheelItemCount="5"
+            app:np_width="65dp"
+            app:np_wrapSelectorWheel="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/_8sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:text=":"
+            android:textColor="@color/white_50"
+            android:textSize="@dimen/_28sdp" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/set_time_np_minute"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_110sdp"
+            android:background="@color/transparent"
+            app:np_dividerColor="@color/transparent"
+            app:np_max="59"
+            app:np_min="0"
+            app:np_selectedTextColor="@color/white"
+            app:np_selectedTextSize="@dimen/_16sdp"
+            app:np_textColor="@color/white_50"
+            app:np_textSize="@dimen/_12sdp"
+            app:np_typeface="@string/roboto_light"
+            app:np_value="15"
+            app:np_wheelItemCount="5"
+            app:np_width="65dp"
+            app:np_wrapSelectorWheel="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/custom_set_time_minute"
+            android:textColor="@color/white_50"
+            android:textSize="@dimen/_16sdp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_46sdp">
+
+        <LinearLayout
+            android:id="@+id/cancel_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/_17sdp"
+            android:layout_marginLeft="@dimen/_17sdp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingRight="@dimen/_16sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_31sdp"
+                android:layout_height="@dimen/_31sdp"
+                app:srcCompat="@drawable/closexer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/cancel"
+                android:textColor="@color/white_30"
+                android:textSize="@dimen/_10sdp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/save_view"
+            android:layout_width="@dimen/_46sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_green_shape"
+            android:padding="@dimen/_12sdp"
+            app:srcCompat="@drawable/doubleline_true" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7" />
+
+    <FrameLayout
+        android:id="@+id/nativeAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+<!--    <include-->
+<!--        layout="@layout/layout_banner_control"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" />-->
+</LinearLayout>

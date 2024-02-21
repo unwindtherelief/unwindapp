@@ -21,5 +21,21 @@
     <color name="backcolorquote">#F3EED9</color>
     <color name="textcolor2">#707070</color>
     <color name="progresscardback">#F3EED9</color>
+    <color name="green_200">#366838</color>
+    <color name="popup_negative">#b3000000</color>
+    <color name="popup_positive">#36730f</color>
+    <color name="colorThemeYellow">#09880F</color>
+    <color name="white_5">#D8D8D8</color>
+    <color name="colorThemeYellowLight">#7010B305</color>
+    <color name="colorThemeYellowMedium">#CC06DC11</color>
+    <color name="gradient1">#121332</color>
+    <color name="white_50">#80ffffff</color>
+    <color name="white_30">#4dffffff</color>
+    <color name="white_70">#b3ffffff</color>
+    <color name="white_20">#33ffffff</color>
+    <color name="colorPrimaryDark">#121332</color>
+    <color name="grey">#66323232</color>
+    <color name="white_10">#ffffffff</color>
+    <color name="black_20">#14000000</color>
 
 </resources>

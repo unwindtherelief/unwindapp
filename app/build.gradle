@@ -38,6 +38,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout-core:1.0.4'
+    implementation 'androidx.work:work-runtime:2.6.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -51,7 +53,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.10.0'
     implementation 'com.google.firebase:firebase-storage:20.3.0'
 
-    implementation platform('com.google.firebase:firebase-bom:28.1.0')
+    implementation platform('com.google.firebase:firebase-bom:32.2.2')
+    implementation 'com.google.firebase:firebase-analytics'
 
     implementation 'com.google.android.gms:play-services-tasks:18.0.2'
 
@@ -79,5 +82,26 @@ dependencies {
     //animation
     implementation 'com.github.AtifSayings:Animatoo:1.0.1'
 
+    //sliding root nav
+    implementation 'com.yarolegovich:sliding-root-nav:1.1.1'
+    //slim adapter
+    implementation 'net.idik:slimadapter:2.1.2'
+    //drawee view
+    implementation 'com.facebook.fresco:fresco:2.6.0'
+//numberplate
+    implementation 'io.github.ShawnLin013:number-picker:2.4.13'
+
+    //indicatorview
+    implementation 'com.github.Kshitij-Jain:IndicatorView:1.25'
+    //percent layout
+    implementation 'androidx.percentlayout:percentlayout:1.0.0-alpha1'
+
+
+    def room_version = "2.4.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    //multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
 
 }
