@@ -4,102 +4,105 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_mix_sound"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_5sdp" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
 
-      <RelativeLayout
-          android:id="@+id/mini_player"
-          android:layout_width="match_parent"
-          android:layout_height="@dimen/_40sdp"
-          android:background="@drawable/trans_back_half"
-          android:visibility="visible">
-
-        <ImageView
-            android:id="@+id/cover_image"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_centerVertical="true"
-            android:layout_margin="@dimen/_2sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/rain_with_piano" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_mix_sound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp" />
 
         <LinearLayout
-            android:layout_width="@dimen/_170sdp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/cover_image"
+            android:layout_alignParentBottom="true"
             android:orientation="vertical">
 
-          <TextView
-              android:id="@+id/sound_name"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="@dimen/_13sdp"
-              android:ellipsize="marquee"
-              android:fontFamily="@font/roboto_regular"
-              android:singleLine="true"
-              android:text="@string/app_name"
-              android:textColor="@color/white"
-              android:textSize="@dimen/_13sdp" />
+            <RelativeLayout
+                android:id="@+id/mini_player"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/trans_back_half"
+                android:visibility="visible">
 
-          <TextView
-              android:id="@+id/play_time"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="@dimen/_13sdp"
-              android:layout_marginTop="@dimen/_3sdp"
-              android:fontFamily="@font/roboto_regular"
-              android:text=""
-              android:textColor="@color/white"
-              android:textSize="@dimen/_10sdp" />
+                <ImageView
+                    android:id="@+id/cover_image"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rain_with_piano_img" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/_170sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/cover_image"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/sound_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_13sdp"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/poppins_regular"
+                        android:singleLine="true"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:id="@+id/play_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_control"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/play_control_iv"
+                        android:layout_width="@dimen/_39sdp"
+                        android:layout_height="@dimen/_39sdp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_pause_x" />
+
+                    <ImageView
+                        android:id="@+id/close_iv"
+                        android:layout_width="@dimen/_39sdp"
+                        android:layout_height="@dimen/_39sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_close_x" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/bannerAds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_control"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:gravity="center_vertical">
-
-          <ImageView
-              android:id="@+id/play_control_iv"
-              android:layout_width="@dimen/_39sdp"
-              android:layout_height="@dimen/_39sdp"
-              android:layout_marginStart="@dimen/_6sdp"
-              android:padding="@dimen/_10sdp"
-              android:scaleType="fitXY"
-              android:src="@drawable/ic_pause_x" />
-
-          <ImageView
-              android:id="@+id/close_iv"
-              android:layout_width="@dimen/_39sdp"
-              android:layout_height="@dimen/_39sdp"
-              android:padding="@dimen/_10sdp"
-              android:scaleType="fitXY"
-              android:src="@drawable/ic_close_x" />
-        </LinearLayout>
-      </RelativeLayout>
-
-      <FrameLayout
-          android:id="@+id/bannerAds"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/_2sdp"
-          android:layout_marginBottom="@dimen/_2sdp" />
-    </LinearLayout>
-  </RelativeLayout>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

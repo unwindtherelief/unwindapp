@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_2sdp"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/sound_icon_bg_layout"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
         android:background="@drawable/mixer2">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -26,6 +27,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:alpha="0.6"
             android:paddingStart="@dimen/_15sdp"
             android:paddingLeft="@dimen/_15sdp"
@@ -35,6 +37,34 @@
             app:srcCompat="@drawable/fillwhitecross" />
     </RelativeLayout>
 
-    <TextView android:textSize="@dimen/_10sdp" android:textColor="@color/white" android:gravity="center" android:id="@+id/sound_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_3sdp" android:fontFamily="@font/roboto_regular"/>
-    <SeekBar android:id="@+id/sound_seekbar" android:paddingTop="@dimen/_2sdp" android:paddingBottom="@dimen/_5sdp" android:visibility="visible" android:layout_width="@dimen/_75sdp" android:layout_height="wrap_content" android:maxHeight="@dimen/_2sdp" android:progressDrawable="@drawable/circular_seek_drawable" android:minHeight="@dimen/_2sdp" android:thumb="@drawable/seek_circle_bar2"/>
+    <TextView
+        android:id="@+id/sound_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="Light rain"
+        android:textColor="@color/textcolor"
+        android:textSize="@dimen/_12ssp" />
+
+    <RelativeLayout
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <SeekBar
+            android:id="@+id/sound_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:maxHeight="@dimen/_3sdp"
+            android:minHeight="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:progressDrawable="@drawable/circular_seek_drawable"
+            android:thumb="@drawable/seek_circle_bar2"
+            android:visibility="visible" />
+    </RelativeLayout>
 </LinearLayout>

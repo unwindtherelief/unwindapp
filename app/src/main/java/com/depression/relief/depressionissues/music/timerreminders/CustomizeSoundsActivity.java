@@ -112,9 +112,9 @@ public class CustomizeSoundsActivity extends NeelDownActivity implements View.On
             }
         });
         this.indictorCircle.setPageIndicators(this.viewPagerAdapter.getCount());
-        this.indictorCircle.setActiveIndicatorColor(R.color.white);
-        this.indictorCircle.setActiveIndicatorColor(R.color.white);
-        this.indictorCircle.setInactiveIndicatorColor(R.color.white_20);
+        this.indictorCircle.setActiveIndicatorColor(R.color.textcolorhint);
+        this.indictorCircle.setActiveIndicatorColor(R.color.textcolor);
+        this.indictorCircle.setInactiveIndicatorColor(R.color.textcolorhint);
     }
 
     public void listerSetter() {

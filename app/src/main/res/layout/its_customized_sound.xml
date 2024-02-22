@@ -3,156 +3,182 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
-    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/music_bg"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginLeft="@dimen/_16sdp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="@string/current_selection"
-        android:textColor="@color/white_70"
-        android:textSize="@dimen/_11sdp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="@dimen/_50sdp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/custom_sounds_rcv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:minHeight="@dimen/_85sdp"
-        android:overScrollMode="never" />
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/roundbg"
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_6sdp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginLeft="@dimen/_16sdp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="@string/all_sounds"
-        android:textColor="@color/white_70"
-        android:textSize="@dimen/_11sdp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <com.depression.relief.depressionissues.music.customView.WrapContentViewPager
-        android:id="@+id/custom_sounds_svp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_240sdp"
-        android:overScrollMode="never" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <io.github.kshitij_jain.indicatorview.IndicatorView
-        android:id="@+id/circle_indicator_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_54sdp">
-
-        <LinearLayout
-            android:id="@+id/custom_sounds_cancel_layout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/custom_sounds_save_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/select_sounds"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_18ssp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/_31sdp"
-                android:layout_height="@dimen/_31sdp"
-                app:srcCompat="@drawable/closexer" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center"
-                android:text="@string/cancel"
-                android:textColor="@color/white_30"
-                android:textSize="@dimen/_10sdp" />
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/custom_sounds_rcv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:minHeight="@dimen/_85sdp"
+            android:overScrollMode="never" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/custom_sounds_save_view"
-            android:layout_width="@dimen/_46sdp"
-            android:layout_height="@dimen/_46sdp"
-            android:background="@drawable/circle_green_shape"
-            android:padding="@dimen/_12sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/doubleline_true"
-            tools:ignore="MissingConstraints" />
-
-        <LinearLayout
-            android:id="@+id/custom_sounds_reset_layout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/custom_sounds_save_view">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/_31sdp"
-                android:layout_height="@dimen/_31sdp"
-                app:srcCompat="@drawable/resetbtn" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center"
-                android:text="@string/reset"
-                android:textColor="@color/white_30"
-                android:textSize="@dimen/_10sdp" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3" />
+        android:layout_height="@dimen/_12sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/roundbg"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/other_sounds"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_18ssp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp" />
+
+        <com.depression.relief.depressionissues.music.customView.WrapContentViewPager
+            android:id="@+id/custom_sounds_svp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_240sdp"
+            android:background="@color/transparent"
+            android:overScrollMode="never" />
+
+
+        <io.github.kshitij_jain.indicatorview.IndicatorView
+            android:id="@+id/circle_indicator_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_54sdp">
+
+                <LinearLayout
+                    android:id="@+id/custom_sounds_cancel_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/custom_sounds_save_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        app:srcCompat="@drawable/closexer" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="@string/cancel"
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/_14ssp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/custom_sounds_save_view"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/circle_green_shape"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/doubleline_true"
+                    tools:ignore="MissingConstraints" />
+
+                <LinearLayout
+                    android:id="@+id/custom_sounds_reset_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/custom_sounds_save_view">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        app:srcCompat="@drawable/resetbtn" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="@string/reset"
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/_14ssp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

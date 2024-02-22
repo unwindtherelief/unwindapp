@@ -93,7 +93,7 @@ public class ScrollableListFragment extends NeelDownFragment {
     }
 
     public void setUpList() {
-        this.mRvListMix.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        this.mRvListMix.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         this.mRvListMix.addItemDecoration(new VideoDecoration());
         FirstScreenAdapter mixItemAdapter2 = new FirstScreenAdapter(getActivity(), this.positionAds, this.mixItems);
         this.mixItemAdapter = mixItemAdapter2;

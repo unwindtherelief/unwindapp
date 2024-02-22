@@ -76,12 +76,12 @@
         <View
             android:id="@+id/viewforsetrecycler"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_80sdp"
+            android:layout_height="@dimen/_75sdp"
             android:layout_below="@id/toolbar" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sound_rcv"
-            android:layout_width="@dimen/_70sdp"
+            android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_280sdp"
             android:layout_below="@id/viewforsetrecycler"
             android:layout_marginLeft="@dimen/_20sdp"
@@ -91,7 +91,8 @@
             android:outlineAmbientShadowColor="@color/black"
             android:outlineSpotShadowColor="@color/black"
             android:overScrollMode="ifContentScrolls"
-            android:padding="@dimen/_8sdp" />
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_10sdp" />
 
 
         <LinearLayout

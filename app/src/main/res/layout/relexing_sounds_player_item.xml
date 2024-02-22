@@ -6,16 +6,16 @@
 
     <RelativeLayout
         android:id="@+id/sound_play_layout"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_8sdp"
         android:background="@drawable/item_back_sound_1">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/sound_icon_iv"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
             android:layout_centerInParent="true"
             app:srcCompat="@drawable/birdee" />
     </RelativeLayout>
@@ -27,8 +27,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/_30sdp"
-        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_28sdp"
+        android:layout_marginLeft="@dimen/_28sdp"
         android:background="@drawable/item_back_sound_1"
         android:gravity="center"
         android:text="8"

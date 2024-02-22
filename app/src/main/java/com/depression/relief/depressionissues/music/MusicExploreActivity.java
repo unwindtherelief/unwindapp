@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.music.abilityutility.HourTills;
 import com.depression.relief.depressionissues.music.abilityutility.Screentils;
@@ -268,4 +269,9 @@ public class MusicExploreActivity extends NeelDownActivity {
         super.onPause();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Animatoo.INSTANCE.animateSlideDown(this);
+    }
 }
