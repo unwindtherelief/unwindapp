@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.databinding.ActivityMainBinding;
 import com.depression.relief.depressionissues.fragments.CommunityFragment;
 import com.depression.relief.depressionissues.fragments.ExploreFragment;
@@ -87,5 +88,11 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frameview, fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Animatoo.INSTANCE.animateShrink(this);
     }
 }

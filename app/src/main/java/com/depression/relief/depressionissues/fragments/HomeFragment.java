@@ -2,18 +2,31 @@ package com.depression.relief.depressionissues.fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +44,7 @@ import com.depression.relief.depressionissues.adapters.ViewPagerAdapter;
 import com.depression.relief.depressionissues.ai.ChatbotActivity;
 import com.depression.relief.depressionissues.models.Category;
 import com.depression.relief.depressionissues.models.MusicData;
+import com.depression.relief.depressionissues.moodtracker.MoodCheckActivity;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -57,7 +71,9 @@ public class HomeFragment extends Fragment {
     private static final String API_URL = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
     private static final String QUOTE_API = "https://raw.githubusercontent.com/unwindtherelief/quotesapi/main/quotesdata.json";
     private static final String CACHE_KEY = "api_data";
-    TextView quotetextview;
+    TextView quotetextview, txt_progressdata;
+    LinearLayout btn_mood_track;
+    ProgressBar progress_bar;
 
     public HomeFragment() {
     }
@@ -67,6 +83,7 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -75,8 +92,31 @@ public class HomeFragment extends Fragment {
         chatbot = view.findViewById(R.id.chatbot);
 
         quotetextview = view.findViewById(R.id.quotetextview);
+        btn_mood_track = view.findViewById(R.id.btn_mood_track);
+        txt_progressdata = view.findViewById(R.id.txt_progressdata);
+        progress_bar = view.findViewById(R.id.progress_bar);
 
-        quotefetchmethod();
+
+        //score get from intent
+        Intent intent = getActivity().getIntent();
+        if (intent != null && intent.hasExtra("overallScore")) {
+            double overallScore = intent.getDoubleExtra("overallScore", 0.0);
+
+            txt_progressdata.setText(overallScore + "%");
+
+            updateProgressBar(overallScore);
+
+        }
+
+        btn_mood_track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MoodCheckActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        fetchQuotesFromApi();
         categoryList = new ArrayList<>();
         categoryAdapter = new CategoryAdapter(getActivity(), categoryList);
 
@@ -86,6 +126,9 @@ public class HomeFragment extends Fragment {
 
         // Fetch data from the API
         fetchDataFromAPI();
+
+        scheduleQuoteUpdate();
+
 
         chatbot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,48 +140,123 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void quotefetchmethod() {
-        Calendar calendar = Calendar.getInstance();
-        Date currentDate = calendar.getTime();
+    private void updateProgressBar(double overallScore) {
+        progress_bar.setProgress(0);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(currentDate);
+        int progress = (int) Math.round(overallScore);
 
-        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        String lastFetchedDate = sharedPreferences.getString("lastFetchedDate", "");
-
-        if (!formattedDate.equals(lastFetchedDate)) {
-            String urlWithDate = QUOTE_API + "?date=" + formattedDate;
-            RequestQueue queue = Volley.newRequestQueue(getActivity());
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                    Request.Method.GET, urlWithDate, null,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-                                String quote = response.getJSONArray("quotes").getJSONObject(0).getString("text");
-                                quotetextview.setText(quote);
-
-                                // Save the current date as last fetched date
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("lastFetchedDate", formattedDate);
-                                editor.apply();
-                            } catch (JSONException e) {
-                                Log.e("JSON Error", e.getMessage());
-                            }
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.e("Volley Error", error.getMessage());
-                        }
-                    });
-            queue.add(jsonObjectRequest);
-        }
+        progress_bar.setProgress(progress);
     }
 
 
+    //code here for notification with quotes
+    private int currentQuoteIndex = 0;
+    private List<String> quotesList = new ArrayList<>();
+    private static final String CHANNEL_ID = "quote_channel";
+
+
+    private static final int ALARM_REQUEST_CODE = 123;
+
+    private void scheduleQuoteUpdate() {
+        // Set the time for the alarm to trigger (midnight)
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+
+        // Create an intent to broadcast
+        Intent intent = new Intent(getActivity(), QuoteUpdateReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), ALARM_REQUEST_CODE, intent, 0);
+
+        // Set up the alarm manager
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        }
+    }
+
+    public class QuoteUpdateReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // This method will be called when the alarm triggers (midnight)
+            // Fetch new quotes and display
+            fetchQuotesFromApi();
+        }
+    }
+
+    private void fetchQuotesFromApi() {
+        String url = "https://raw.githubusercontent.com/unwindtherelief/quotesapi/main/quotesdata.json";
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray quotesArray = response.getJSONArray("quotes");
+                            quotesList.clear(); // Clear the existing list
+                            for (int i = 0; i < quotesArray.length(); i++) {
+                                JSONObject quoteObject = quotesArray.getJSONObject(i);
+                                String quoteText = quoteObject.getString("text");
+                                quotesList.add(quoteText);
+                            }
+                            // Display the first quote immediately
+                            displayNextQuote();
+                        } catch (JSONException e) {
+                            Log.e("JSON Error", e.getMessage());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Volley Error", error.getMessage());
+                    }
+                });
+        queue.add(jsonObjectRequest);
+    }
+
+    private void displayNextQuote() {
+        if (!quotesList.isEmpty()) {
+            String nextQuote = quotesList.get(currentQuoteIndex);
+            quotetextview.setText(nextQuote);
+            showNotification(nextQuote); // Display notification when quote changes
+            currentQuoteIndex++;
+            // Reset to the first quote if end of list is reached
+            if (currentQuoteIndex >= quotesList.size()) {
+                currentQuoteIndex = 0;
+            }
+        }
+    }
+
+    private void showNotification(String quoteText) {
+        // Create notification channel (for Android Oreo and above)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Quote Channel";
+            String description = "Channel for displaying quotes";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        // Build the notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_noti)
+                .setContentTitle("New Quote")
+                .setContentText(quoteText)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
+        notificationManager.notify(1, builder.build());
+    }
+
+
+    //sali no karvi aama aa code chhe music no
     private void fetchDataFromAPI() {
         String cachedData = loadJsonFromCache(CACHE_KEY);
         if (cachedData != null) {
@@ -202,5 +320,21 @@ public class HomeFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, json);
         editor.apply();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Fetch quotes from API when the activity is resumed
+        scheduleQuoteUpdate();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Stop displaying quotes when the activity is paused
+        currentQuoteIndex = 0;
+        quotesList.clear();
+        quotetextview.setText(""); // Clear the TextView
     }
 }

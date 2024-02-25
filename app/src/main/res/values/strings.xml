@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Depression relief</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -95,6 +95,20 @@
     <string name="bed_saturday">S</string>
     <string name="select_sounds">Selected Sounds</string>
     <string name="other_sounds">Other Sounds</string>
+    <string name="profile_type">Profile Type</string>
+    <string name="prof_description">Select your profile type based on your preferences.</string>
+    <string name="add_assesment">Assessment</string>
+    <string name="mood_track">Mood Tracker</string>
+    <string name="mood_report">Mood Report</string>
+    <string name="general_wellbeing_assistent">General Wellbeing Assessment</string>
+    <string name="performance_advisor">Performance Advisor</string>
+    <string name="des_wellbeing">Personalized Guidance Based on Your Assessment Performance</string>
+    <string name="excellent_wellbeing"> • Congratulations on maintaining excellent wellbeing! Keep up the good work. \n\n • Maintain your healthy habits and continue engaging in activities that bring you joy and fulfillment. \n\n • Consider helping others or giving back to your community to enhance your sense of purpose even further. \n\n • Remember to take breaks and practice self-care regularly to sustain your high level of wellbeing.</string>
+    <string name="critical_wellbeing" > • Your wellbeing appears to be severely impacted, and its crucial to take immediate action.\n\n • Reach out to a mental health professional or crisis helpline for immediate support and guidance.\n\n • Remember that its okay to ask for help and that there are resources available to support you through difficult times.\n\n • Take small steps towards self-care, such as getting enough rest, eating nourishing foods, and avoiding substances that may exacerbate your situation.\n\n • Surround yourself with supportive individuals who can offer encouragement and assistance as you work towards improving your wellbeing.</string>
+    <string name="des_contact_doctor">For personalized guidance and improved performance, contact our doctors today.</string>
+    <string name="poor_wellbeing" > • It seems like you are struggling with several aspects of your wellbeing.\n\n • Dont hesitate to reach out for support from trusted individuals or seek professional help if needed.\n\n • Focus on prioritizing self-care activities and addressing any underlying issues contributing to your low mood or stress levels.\n\n • Consider making lifestyle changes, such as improving sleep habits, increasing physical activity, or seeking therapy, to improve your overall wellbeing.</string>
+    <string name="fair_wellbeing" > • Your wellbeing is average, but there is room for improvement in various areas.\n\n • Identify specific areas of your life that need attention, such as stress management, social connections, or physical health.\n\n • Take proactive steps to address any concerns or challenges you are facing, whether its seeking support from friends, family, or professionals.\n\n • Experiment with different strategies to find what works best for you in terms of improving your mood and overall wellbeing.</string>
+    <string name="good_wellbeing" > • You are doing well overall, but there might be some areas you could improve.\n\n • Focus on managing stress effectively through relaxation techniques, exercise, or mindfulness practices.\n\n • Make sure to maintain a healthy work-life balance and prioritize activities that contribute positively to your overall happiness.\n\n • Seek out opportunities for personal growth and development to further enhance your wellbeing.</string>
 
 
 </resources>

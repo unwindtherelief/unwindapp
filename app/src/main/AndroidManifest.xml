@@ -29,6 +29,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".moodtracker.MoodReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".moodtracker.MoodCheckActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AssessmentAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".launch.ChooseProfessionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".launch.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ShowDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.GamesListActivity"
             android:exported="false" />
         <activity
@@ -65,7 +86,7 @@
             android:name="com.depression.relief.depressionissues.MainActivity"
             android:exported="true" />
         <activity
-            android:name="com.depression.relief.depressionissues.launch.WelcomeActivity"
+            android:name=".launch.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

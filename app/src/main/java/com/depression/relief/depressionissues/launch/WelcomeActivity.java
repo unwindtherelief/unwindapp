@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.MainActivity;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.authentication.SignupActivity;
@@ -50,5 +51,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Animatoo.INSTANCE.animateShrink(this);
     }
 }
