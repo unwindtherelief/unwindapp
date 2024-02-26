@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -121,7 +122,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         TextView textViewQuestion;
         TextView textViewOptions;
         RecyclerView recyclerViewOptions;
-        Button buttonDelete;
+        ImageView buttonDelete;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);

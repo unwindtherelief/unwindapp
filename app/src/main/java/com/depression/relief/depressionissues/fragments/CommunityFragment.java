@@ -208,7 +208,7 @@ public class CommunityFragment extends Fragment {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedImageUri = data.getData();
-            // Update the selected image path
+
             selectedImagePath = getRealPathFromURI(selectedImageUri);
         }
     }
@@ -223,4 +223,14 @@ public class CommunityFragment extends Fragment {
         cursor.close();
         return path;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        int trendingTabIndex = 1;
+
+        viewpager.setCurrentItem(trendingTabIndex);
+    }
+
 }
