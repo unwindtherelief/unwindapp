@@ -18,7 +18,7 @@
     <color name="apptextcolor">#92B2C8</color>
     <color name="apptextcolor2">#519ACD</color>
     <color name="apptextcolor3">#7394AC</color>
-    <color name="backcolorquote">#F3EED9</color>
+    <color name="backcolorquote">#5B5C33</color>
     <color name="textcolor2">#707070</color>
     <color name="progresscardback">#F3EED9</color>
     <color name="green_200">#366838</color>
@@ -38,5 +38,15 @@
     <color name="white_10">#ffffffff</color>
     <color name="black_20">#14000000</color>
     <color name="textcolor3">#6A6949</color>
+    <color name="affer_1">#EF7CAF</color>
+    <color name="affer_2">#FDA79A</color>
+    <color name="affer_3">#ADDCF4</color>
+    <color name="affer_4">#FEF1DD</color>
+    <color name="affer_5">#F8D39D</color>
+    <color name="affer_6">#DEFAF0</color>
+    <color name="affer_7" >#93B592</color>
+    <color name="affer_8" >#AAF0D2</color>
+    <color name="affer_9" >#97AFB3</color>
+    <color name="affer_10" >#DFFCB5</color>
 
 </resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/josefin_regular"
+            android:text="@string/affermation"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_20ssp" />
+
+    </RelativeLayout>
+
+    <com.yalantis.library.Koloda
+        android:id="@+id/koloda"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:koloda_card_layout="@layout/affermation_card_item"
+        app:koloda_card_offsetY="3dp"
+        app:koloda_card_rotate_angle="90"
+        app:koloda_card_scale_diff="0.06" />
+
+</LinearLayout>

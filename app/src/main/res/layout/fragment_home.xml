@@ -66,11 +66,75 @@
                 android:padding="@dimen/_3sdp"
                 android:src="@drawable/ic_snap" />
 
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardviewquote"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_98sdp"
+                android:layout_below="@id/lnr1"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:backgroundTint="@color/backcolorquote"
+                app:cardCornerRadius="@dimen/_20sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:fontFamily="@font/epiloguemedium"
+                            android:padding="@dimen/_3sdp"
+                            android:text="Quote of the day"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_16ssp" />
+
+
+                        <TextView
+                            android:id="@+id/quotetextview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:fontFamily="@font/epiloguemedium"
+                            android:lineHeight="@dimen/_15sdp"
+                            android:padding="@dimen/_3sdp"
+                            android:text="@string/belive_in_yourself"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_3sdp"
+                        android:src="@drawable/ic_quote" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/progressshow_card"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_170sdp"
-                android:layout_below="@+id/lnr1"
+                android:layout_below="@+id/cardviewquote"
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:backgroundTint="@color/progresscardback"
@@ -466,73 +530,21 @@
 
             </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardviewquote"
+
+            <ImageView
+                android:id="@+id/btn_whatonyourmind"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_98sdp"
-                android:layout_below="@id/moodshow"
-                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_below="@+id/moodshow"
+                android:layout_marginHorizontal="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:backgroundTint="@color/backcolorquote"
-                app:cardCornerRadius="@dimen/_20sdp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_12sdp"
-                            android:layout_marginTop="@dimen/_12sdp"
-                            android:fontFamily="@font/epiloguemedium"
-                            android:padding="@dimen/_3sdp"
-                            android:text="Quote of the day"
-                            android:textColor="@color/textcolor"
-                            android:textSize="@dimen/_16ssp" />
-
-
-                        <TextView
-                            android:id="@+id/quotetextview"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_12sdp"
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:fontFamily="@font/epiloguemedium"
-                            android:lineHeight="@dimen/_15sdp"
-                            android:padding="@dimen/_3sdp"
-                            android:text="It is better to conquor yourself than to win a thousand battels."
-                            android:textAlignment="gravity"
-                            android:textColor="@color/textcolor2"
-                            android:textSize="@dimen/_10ssp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_gravity="bottom"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_15sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_3sdp"
-                        android:src="@drawable/ic_quote" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                android:src="@drawable/ic_whatonyourmind" />
 
             <LinearLayout
                 android:id="@+id/recommandedmusic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cardviewquote"
+                android:layout_below="@id/btn_whatonyourmind"
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical">

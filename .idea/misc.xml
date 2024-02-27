@@ -86,17 +86,21 @@
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/ripplerectbg.xml" value="0.113" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/round_bg_menu.xml" value="0.113" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/roundbg.xml" value="0.113" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/roundbg_color.xml" value="0.113" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/roundbg_journalshow.xml" value="0.113" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/roundedittext.xml" value="0.113" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/roundedsendmsg.xml" value="0.114" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/tab1.xml" value="0.114" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/tab2.xml" value="0.114" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/drawable/tab_background.xml" value="0.113" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_admin.xml" value="0.13333333333333333" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_affermation_tinder.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_assessment_admin.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_chatbot.xml" value="0.14666666666666667" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_choose_profession.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_forgotpassword.xml" value="0.1796875" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_games_list.xml" value="0.17753623188405798" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_journal.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_mood_check.xml" value="0.16666666666666666" />
@@ -110,9 +114,14 @@
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_signup.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_splash.xml" value="0.165625" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/activity_welcome.xml" value="0.17753623188405798" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/affermation_card_item.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/after_install_screen.xml" value="0.17753623188405798" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/bottom_sheet_add_entry.xml" value="0.13387978142076504" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/bottom_sheet_emotion.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/custom_tab.xml" value="0.17753623188405798" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/dialog_add_journalentry.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/drawer_sample.xml" value="0.17753623188405798" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/entry_layout.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fast_scrollable_list.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_chart_data.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_collection.xml" value="0.1796875" />
@@ -120,6 +129,7 @@
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_explore.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_journal.xml" value="0.1796875" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_new_journal_entry_bottom_sheet.xml" value="0.14666666666666667" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_progress_fragent.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_relationship_comment.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/fragment_trending_comment.xml" value="0.1" />
@@ -127,12 +137,14 @@
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_chat_bot.xml" value="0.1796875" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_chat_user.xml" value="0.1796875" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_commentview.xml" value="0.16666666666666666" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_journal_entry.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_message.xml" value="0.1796875" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_music.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_option.xml" value="0.17753623188405798" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/item_question.xml" value="0.13333333333333333" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/its_customized_sound.xml" value="0.14666666666666667" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/its_time_to_sleep.xml" value="0.17753623188405798" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/journal_item.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/main_mix_frag.xml" value="0.14666666666666667" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/my_mixable_sounds.xml" value="0.16666666666666666" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/notification_handler.xml" value="0.17753623188405798" />
@@ -144,7 +156,7 @@
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/remind_meto_sleep.xml" value="0.1" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/set_alarm_time.xml" value="0.12" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/sliding_drawer.xml" value="0.1" />
-        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/sound_mix_customized.xml" value="0.5" />
+        <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/sound_mix_customized.xml" value="0.12" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/sound_mix_deletion.xml" value="0.14666666666666667" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/sound_mixable_my.xml" value="0.5" />
         <entry key="..\:/Final year project/Unwind-depression-relief-master/Unwind-depression-relief-master/app/src/main/res/layout/sound_mixer_item.xml" value="0.1" />

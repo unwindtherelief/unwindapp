@@ -14,7 +14,9 @@ import androidx.fragment.app.Fragment;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
+import com.depression.relief.depressionissues.activities.AffermationTinderActivity;
 import com.depression.relief.depressionissues.activities.GamesListActivity;
+import com.depression.relief.depressionissues.activities.JournalActivity;
 import com.depression.relief.depressionissues.music.MusicExploreActivity;
 
 public class ExploreFragment extends Fragment {
@@ -59,6 +61,23 @@ public class ExploreFragment extends Fragment {
         btn_relaxgames.setAnimation(animation);
         btn_mindfulbreath.setAnimation(animation);
 
+
+        btn_dailyjournal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), JournalActivity.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateZoom(getActivity());
+            }
+        });
+        btn_dailyaffermation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AffermationTinderActivity.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateZoom(getActivity());
+            }
+        });
 
         btn_musictreat.setOnClickListener(new View.OnClickListener() {
             @Override

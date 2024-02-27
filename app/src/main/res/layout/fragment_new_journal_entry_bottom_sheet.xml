@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/roundbg"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+
+    <ImageView
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_bottom_drawer" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:fontFamily="@font/josefin_regular"
+        android:gravity="center_horizontal"
+        android:text="Add Note"
+        android:textSize="@dimen/_20ssp" />
+
+    <EditText
+        android:id="@+id/editTextTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:background="@drawable/roundbg_journalshow"
+        android:fontFamily="@font/josefin_regular"
+        android:hint="Title"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolorhint"
+        android:textSize="@dimen/_17ssp" />
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:background="@drawable/roundbg_journalshow"
+        android:fontFamily="@font/josefin_regular"
+        android:gravity="left"
+        android:hint="Description"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolorhint"
+        android:textSize="@dimen/_17ssp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp" />
+
+    <ImageView
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_50sdp"
+        android:padding="@dimen/_3sdp"
+        android:src="@drawable/btn_next" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp" />
+</LinearLayout>

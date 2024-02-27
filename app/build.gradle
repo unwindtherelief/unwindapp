@@ -103,5 +103,8 @@ dependencies {
 
     //multidex
     implementation 'androidx.multidex:multidex:2.0.1'
+    //tinder koloda
+    implementation 'com.github.Yalantis:Koloda-Android:v0.0.2-alpha'
+
 
 }

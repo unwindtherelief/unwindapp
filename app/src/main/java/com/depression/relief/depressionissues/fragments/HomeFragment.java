@@ -15,6 +15,7 @@ import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
+import com.depression.relief.depressionissues.activities.JournalActivity;
 import com.depression.relief.depressionissues.activities.MusicActivity;
 import com.depression.relief.depressionissues.adapters.CategoryAdapter;
 import com.depression.relief.depressionissues.adapters.ViewPagerAdapter;
@@ -74,6 +77,7 @@ public class HomeFragment extends Fragment {
     TextView quotetextview, txt_progressdata;
     LinearLayout btn_mood_track;
     ProgressBar progress_bar;
+    ImageView btn_whatonyourmind;
 
     public HomeFragment() {
     }
@@ -95,6 +99,17 @@ public class HomeFragment extends Fragment {
         btn_mood_track = view.findViewById(R.id.btn_mood_track);
         txt_progressdata = view.findViewById(R.id.txt_progressdata);
         progress_bar = view.findViewById(R.id.progress_bar);
+        btn_whatonyourmind = view.findViewById(R.id.btn_whatonyourmind);
+
+
+        btn_whatonyourmind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), JournalActivity.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateCard(getActivity());
+            }
+        });
 
 
         //score get from intent
@@ -158,12 +173,9 @@ public class HomeFragment extends Fragment {
     private static final int ALARM_REQUEST_CODE = 123;
 
     private void scheduleQuoteUpdate() {
-        // Set the time for the alarm to trigger (midnight)
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
+        // Set the time for the alarm to trigger (every 3600 seconds)
+        long intervalMillis = 3600 * 1000; // 3600 seconds in milliseconds
+        long triggerTimeMillis = SystemClock.elapsedRealtime() + intervalMillis;
 
         // Create an intent to broadcast
         Intent intent = new Intent(getActivity(), QuoteUpdateReceiver.class);
@@ -172,7 +184,7 @@ public class HomeFragment extends Fragment {
         // Set up the alarm manager
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         if (alarmManager != null) {
-            alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+            alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME, triggerTimeMillis, intervalMillis, pendingIntent);
         }
     }
 
@@ -221,7 +233,7 @@ public class HomeFragment extends Fragment {
         if (!quotesList.isEmpty()) {
             String nextQuote = quotesList.get(currentQuoteIndex);
             quotetextview.setText(nextQuote);
-            showNotification(nextQuote); // Display notification when quote changes
+//            showNotification(nextQuote); // Display notification when quote changes
             currentQuoteIndex++;
             // Reset to the first quote if end of list is reached
             if (currentQuoteIndex >= quotesList.size()) {
@@ -335,6 +347,6 @@ public class HomeFragment extends Fragment {
         // Stop displaying quotes when the activity is paused
         currentQuoteIndex = 0;
         quotesList.clear();
-        quotetextview.setText(""); // Clear the TextView
+        quotetextview.setText(R.string.belive_in_yourself); // Clear the TextView
     }
 }
