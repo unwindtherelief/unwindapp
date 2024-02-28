@@ -13,43 +13,56 @@ import com.depression.relief.depressionissues.R;
 
 import java.util.List;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+public class ChatAdapter extends  RecyclerView.Adapter<ChatAdapter.MyViewHolder>{
 
-    private List<Message> messageList;
+    List<Message> messegeList;
 
-    public ChatAdapter(List<Message> messageList) {
-        this.messageList = messageList;
+    public ChatAdapter(List<Message> messegeList) {
+        this.messegeList=messegeList;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View chatView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat_user,null);
+        MyViewHolder myViewHolder = new MyViewHolder(chatView);
+        return myViewHolder;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(viewType == 0 ? R.layout.item_chat_user : R.layout.item_chat_bot, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Message message = messageList.get(position);
-        holder.messageTextView.setText(message.getContent());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Message messege = messegeList.get(position);
+        if(messege.getSentby().equalsIgnoreCase(Message.SENT_BY_ME))
+        {
+            holder.botview.setVisibility(View.GONE);
+            holder.userview.setVisibility(View.VISIBLE);
+            holder.usertext.setText(messege.getMsg());
+        }
+        else
+        {
+            holder.userview.setVisibility(View.GONE);
+            holder.botview.setVisibility(View.VISIBLE);
+            holder.bottext.setText(messege.getMsg());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return messageList.size();
+        return messegeList.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return messageList.get(position).isUser() ? 0 : 1;
-    }
+    public class MyViewHolder extends RecyclerView.ViewHolder{
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView messageTextView;
+        LinearLayout botview,userview;
+        TextView bottext,usertext;
 
-        public ViewHolder(View view) {
-            super(view);
-            messageTextView = view.findViewById(R.id.messageTextView);
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            botview=itemView.findViewById(R.id.botview);
+            userview=itemView.findViewById(R.id.userview);
+            bottext=itemView.findViewById(R.id.bottext);
+            usertext=itemView.findViewById(R.id.usertext);
         }
     }
 }

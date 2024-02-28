@@ -1,25 +1,30 @@
 package com.depression.relief.depressionissues.ai;
 
 public class Message {
-    private String sender;
-    private String content;
-    private boolean isUser;
+    public static String SENT_BY_ME="me";
+    public static String SENT_BY_BOT="bot";
 
-    public Message(String sender, String content, boolean isUser) {
-        this.sender = sender;
-        this.content = content;
-        this.isUser = isUser;
+    String msg;
+    String sentby;
+
+    public String getMsg() {
+        return msg;
     }
 
-    public String getSender() {
-        return sender;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getContent() {
-        return content;
+    public String getSentby() {
+        return sentby;
     }
 
-    public boolean isUser() {
-        return isUser;
+    public void setSentby(String sentby) {
+        this.sentby = sentby;
+    }
+
+    public Message(String msg, String sentby) {
+        this.msg = msg;
+        this.sentby = sentby;
     }
 }

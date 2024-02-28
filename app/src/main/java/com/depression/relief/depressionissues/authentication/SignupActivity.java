@@ -118,12 +118,15 @@ public class SignupActivity extends AppCompatActivity {
 
             String selectedImageUrl = "android.resource://" + getPackageName() + "/" + selectedImageResourceId;
 
-            UserModel usermodel = new UserModel(firstname, email, completeNumber, gender, dateOfBirth, selectedImageUrl);
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                            UserModel usermodel = new UserModel(firstname, email, completeNumber, gender, dateOfBirth, selectedImageUrl, userId);
+
+
                             firestore.collection("users")
                                     .document(userId)
                                     .set(usermodel)

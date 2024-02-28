@@ -45,11 +45,12 @@
 
 
                 <TextView
+                    android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_30sdp"
                     android:fontFamily="@font/alata_regular"
                     android:gravity="center_vertical"
-                    android:text="Mylan"
+                    android:text="John deo"
                     android:textColor="@color/textcolor"
                     android:textSize="@dimen/_16ssp" />
 

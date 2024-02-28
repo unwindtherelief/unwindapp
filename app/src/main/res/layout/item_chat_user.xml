@@ -1,19 +1,60 @@
-<!-- item_chat_user.xml -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="end"
-    android:layout_margin="@dimen/_6sdp">
+    android:padding="@dimen/_5sdp">
 
-
-    <TextView
-        android:id="@+id/messageTextView"
+    <LinearLayout
+        android:id="@+id/botview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/_2sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_botgenerate" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bubble_bot"
+            android:padding="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/bottext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/_20sdp"
         android:background="@drawable/bubble_user"
-        android:padding="@dimen/_6sdp"
-        android:textColor="@color/textcolor" />
+        android:padding="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/usertext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_12ssp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

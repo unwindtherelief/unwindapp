@@ -8,17 +8,27 @@ public class UserModel {
     private String dateOfBirth;
     private String selectedImageUrl;
 
-    // Default constructor (required for Firestore)
-    public UserModel() {
+    public String getUserId() {
+        return userId;
     }
 
-    public UserModel(String firstname, String email, String completeNumber, String gender, String dateOfBirth, String selectedImageUrl) {
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    private String userId;
+
+    // Default constructor (required for Firestore)
+    public UserModel(){}
+
+    public UserModel(String firstname, String email, String completeNumber, String gender, String dateOfBirth, String selectedImageUrl,String userId) {
         this.firstname = firstname;
         this.email = email;
         this.completeNumber = completeNumber;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
         this.selectedImageUrl = selectedImageUrl;
+        this.userId = userId;
     }
 
     public String getFirstname() {

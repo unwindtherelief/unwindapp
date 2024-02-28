@@ -97,7 +97,7 @@
 
             <EditText
                 android:id="@+id/userInput"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_28sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginHorizontal="@dimen/_15ssp"

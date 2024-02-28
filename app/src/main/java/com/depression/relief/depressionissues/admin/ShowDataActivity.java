@@ -2,6 +2,7 @@ package com.depression.relief.depressionissues.admin;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.admin.quetsions.QuestionAdapter;
 import com.depression.relief.depressionissues.admin.quetsions.QuestionData;
@@ -26,6 +28,7 @@ public class ShowDataActivity extends AppCompatActivity implements QuestionAdapt
     private List<QuestionData> questionList;
 
     private FirebaseFirestore db;
+    ImageView buttonGoBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class ShowDataActivity extends AppCompatActivity implements QuestionAdapt
 
         recyclerView = findViewById(R.id.recyclerViewShowData);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        buttonGoBack = findViewById(R.id.buttonGoBack);
 
         db = FirebaseFirestore.getInstance();
 
@@ -43,6 +47,13 @@ public class ShowDataActivity extends AppCompatActivity implements QuestionAdapt
 
 
         loadQuestionsFromFirebase();
+
+        buttonGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void loadQuestionsFromFirebase() {
@@ -71,5 +82,11 @@ public class ShowDataActivity extends AppCompatActivity implements QuestionAdapt
             questionAdapter.notifyItemRemoved(position);
             Toast.makeText(this, "Question deleted successfully", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Animatoo.INSTANCE.animateCard(this);
     }
 }

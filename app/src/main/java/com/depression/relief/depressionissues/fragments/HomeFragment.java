@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -48,6 +49,10 @@ import com.depression.relief.depressionissues.ai.ChatbotActivity;
 import com.depression.relief.depressionissues.models.Category;
 import com.depression.relief.depressionissues.models.MusicData;
 import com.depression.relief.depressionissues.moodtracker.MoodCheckActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -65,6 +70,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     RecyclerView musiccategoryListView;
@@ -74,10 +80,12 @@ public class HomeFragment extends Fragment {
     private static final String API_URL = "https://raw.githubusercontent.com/unwindtherelief/unwindmusicapi/main/unwindmusicapi.json";
     private static final String QUOTE_API = "https://raw.githubusercontent.com/unwindtherelief/quotesapi/main/quotesdata.json";
     private static final String CACHE_KEY = "api_data";
-    TextView quotetextview, txt_progressdata;
+    TextView quotetextview, txt_progressdata, username;
     LinearLayout btn_mood_track;
     ProgressBar progress_bar;
     ImageView btn_whatonyourmind;
+    FirebaseFirestore db;
+    FirebaseAuth mAuth;
 
     public HomeFragment() {
     }
@@ -100,7 +108,12 @@ public class HomeFragment extends Fragment {
         txt_progressdata = view.findViewById(R.id.txt_progressdata);
         progress_bar = view.findViewById(R.id.progress_bar);
         btn_whatonyourmind = view.findViewById(R.id.btn_whatonyourmind);
+        username = view.findViewById(R.id.username);
 
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+
+        retrivedataFromFirebase();
 
         btn_whatonyourmind.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,6 +166,36 @@ public class HomeFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private void retrivedataFromFirebase() {
+        String currentUserUid = mAuth.getCurrentUser().getUid();
+
+        // Check if data is already cached
+        SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String cachedFirstName = preferences.getString("cached_firstname", "");
+
+        if (!cachedFirstName.isEmpty()) {
+            username.setText(cachedFirstName);
+        } else {
+            db.collection("users")
+                    .document(currentUserUid)
+                    .get()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot documentSnapshot = task.getResult();
+                            if (documentSnapshot.exists()) {
+                                String firstname = documentSnapshot.getString("firstname");
+                                username.setText(firstname);
+                            } else {
+                                username.setText("John deo");
+
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private void updateProgressBar(double overallScore) {
