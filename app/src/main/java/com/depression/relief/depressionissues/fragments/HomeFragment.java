@@ -43,6 +43,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.activities.JournalActivity;
 import com.depression.relief.depressionissues.activities.MusicActivity;
+import com.depression.relief.depressionissues.activities.NotificationActivity;
 import com.depression.relief.depressionissues.adapters.CategoryAdapter;
 import com.depression.relief.depressionissues.adapters.ViewPagerAdapter;
 import com.depression.relief.depressionissues.ai.ChatbotActivity;
@@ -83,7 +84,7 @@ public class HomeFragment extends Fragment {
     TextView quotetextview, txt_progressdata, username;
     LinearLayout btn_mood_track;
     ProgressBar progress_bar;
-    ImageView btn_whatonyourmind;
+    ImageView btn_whatonyourmind, btn_notifications;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
 
@@ -109,6 +110,7 @@ public class HomeFragment extends Fragment {
         progress_bar = view.findViewById(R.id.progress_bar);
         btn_whatonyourmind = view.findViewById(R.id.btn_whatonyourmind);
         username = view.findViewById(R.id.username);
+        btn_notifications = view.findViewById(R.id.btn_notifications);
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -121,6 +123,14 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), JournalActivity.class);
                 startActivity(intent);
                 Animatoo.INSTANCE.animateCard(getActivity());
+            }
+        });
+
+        btn_notifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), NotificationActivity.class);
+                startActivity(intent);
             }
         });
 

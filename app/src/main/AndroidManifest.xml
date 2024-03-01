@@ -29,6 +29,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.BillGeneratedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EventsDetailsUserShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.EventFullInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.EventDataAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.EventManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.UserManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.JournalActivity"
             android:exported="false" />
         <activity
@@ -138,6 +159,23 @@
             android:directBootAware="false"
             android:enabled="true"
             android:exported="false" />
+
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:exported="false">
+
+            <!-- other activity attributes -->
+        </activity>
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.razorpay.payment.token" />
+                <action android:name="com.razorpay.WALLET" />
+                <action android:name="com.razorpay.THREED_SECURE" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
             android:directBootAware="false"

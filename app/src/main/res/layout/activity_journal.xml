@@ -20,6 +20,7 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:padding="@dimen/_5sdp"
+            android:tooltipText="Back Button"
             android:src="@drawable/ic_back2" />
 
         <TextView
@@ -30,6 +31,18 @@
             android:text="@string/journal"
             android:textColor="@color/textcolor"
             android:textSize="@dimen/_20ssp" />
+
+
+        <ImageView
+            android:id="@+id/filter_btn"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:tooltipText="Filter data"
+            android:src="@drawable/ic_filter_btn" />
 
     </RelativeLayout>
 

@@ -105,8 +105,10 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     //tinder koloda
     implementation 'com.github.Yalantis:Koloda-Android:v0.0.2-alpha'
+    //razorpay
+    implementation 'com.razorpay:checkout:1.6.4'
+    //qr code generator
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
-    //typewritter text
-    implementation 'com.github.NitishGadangi:TypeWriter-TextView:v1.3'
 
 }

@@ -19,7 +19,11 @@ public class UserModel {
     private String userId;
 
     // Default constructor (required for Firestore)
-    public UserModel(){}
+    public UserModel(String displayName, String email, String userId){
+        this.firstname = displayName;
+        this.email = email;
+        this.userId = userId;
+    }
 
     public UserModel(String firstname, String email, String completeNumber, String gender, String dateOfBirth, String selectedImageUrl,String userId) {
         this.firstname = firstname;

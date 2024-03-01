@@ -47,6 +47,22 @@ public class AdminActivity extends AppCompatActivity {
         btn_event_management.setAnimation(animation);
         btn_content_operation.setAnimation(animation);
 
+
+        btn_event_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, EventManagementActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_usermanagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, UserManagementActivity.class);
+                startActivity(intent);
+            }
+        });
         btn_assessment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

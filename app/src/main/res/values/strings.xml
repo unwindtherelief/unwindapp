@@ -133,6 +133,11 @@
     <string name="affermation_str_21">\"I am enough just as I am.\"</string>
     <string name="journal">Journal</string>
     <string name="belive_in_yourself">\"Believe in yourself; you\'re the architect of your brighter future.\"</string>
+    <string name="event_management">Event Management</string>
+    <string name="event">Event</string>
+    <string name="price_prefix">₹</string>
+    <string name="event_details">Event Details</string>
+    <string name="ticket_details">Ticket Details</string>
 
 
 </resources>

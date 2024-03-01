@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rainback" />
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_back2"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/josefin_regular"
+            android:text="@string/event_details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20ssp" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/rubikregular"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/_8sdp"
+        android:text="Art Therapy Workshops"
+        android:textColor="@color/textcolor"
+        android:textSize="@dimen/_25ssp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_marginHorizontal="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lnr_datetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:src="@drawable/ic_event_date_logo" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="01/02/2024"
+                        android:textColor="@color/black_100"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/textViewTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="12:00 Am"
+                        android:textColor="@color/purple_new"
+                        android:textSize="@dimen/_10ssp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lnr_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lnr_datetime"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:src="@drawable/ic_event_location_logo" />
+
+                <TextView
+                    android:id="@+id/textViewLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="24, middle east time square"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/_12ssp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lnr_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lnr_datetime"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:src="@drawable/ic_event_payment_logo" />
+
+                <TextView
+                    android:id="@+id/textViewPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="₹ 950 For One Ticket"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/_12ssp" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textViewAttendeeLimit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/lnr_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lnr_location"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Event"
+                    android:textColor="#120D26"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:id="@+id/textViewDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lnr_location"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/rubikregular"
+                    android:text="sdfsdfsd fsd fghdsg hgfjgsd jhfgjhsd gfhg jhsdafgdsjhfg djhsgf hghsdf ghjsdfgh gahsd gfhgsdh fgsdh fghsdg fjhsdg fhdsghj fgjhds fgjhsd g"
+                    android:textAlignment="viewStart"
+                    android:textColor="#120D26"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/btn_BookEvent"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_buy_ticket_btn"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/btn_DownloadBill"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_download_ticket_btn"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

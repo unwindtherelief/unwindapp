@@ -2,9 +2,11 @@ package com.depression.relief.depressionissues.activities;
 
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -48,7 +50,7 @@ public class JournalActivity extends AppCompatActivity {
     private List<JournalEntry> journalList;
     SwipeRefreshLayout swipeRefreshLayout;
     LinearLayout dateLinearLayout;
-    ImageView backbtn;
+    ImageView backbtn, filter_btn;
 
     @SuppressLint("ResourceType")
     @Override
@@ -62,6 +64,14 @@ public class JournalActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         backbtn = findViewById(R.id.backbtn);
+        filter_btn = findViewById(R.id.filter_btn);
+
+        filter_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePicker();
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         dateLinearLayout = findViewById(R.id.lnrDatePicker);
@@ -157,6 +167,28 @@ public class JournalActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void showDatePicker() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,R.style.DatePickerDialogStyle,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // Handle the selected date (year, month, dayOfMonth)
+                        String selectedDate = String.format(Locale.US, "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+
+                        // Call a method to filter and display entries for the selected date
+                        filterAndDisplayEntries(selectedDate);
+                    }
+                },
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+
+        datePickerDialog.show();
+    }
+
 
     private void filterAndDisplayEntries(String selectedDate) {
         List<JournalEntry> filteredEntries = new ArrayList<>();
