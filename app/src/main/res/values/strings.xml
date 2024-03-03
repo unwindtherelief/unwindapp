@@ -138,6 +138,10 @@
     <string name="price_prefix">₹</string>
     <string name="event_details">Event Details</string>
     <string name="ticket_details">Ticket Details</string>
+    <string name="guided_meditation">Guided Meditation</string>
+    <string name="meditations">Meditations</string>
+    <string name="see_all">See All</string>
+    <string name="meditation_details">Meditation Details</string>
 
 
 </resources>

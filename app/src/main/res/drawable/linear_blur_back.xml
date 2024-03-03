@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color with 40% opacity -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#80272727" />
+        </shape>
+    </item>
+
+    <!-- Line gradient to create a linear effect -->
+    <item android:top="1dp">
+        <shape android:shape="line">
+            <gradient
+                android:startColor="#80272727"
+                android:endColor="#80272727"
+                android:type="linear"
+                android:angle="90"/>
+        </shape>
+    </item>
+</layer-list>

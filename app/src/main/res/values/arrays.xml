@@ -113,7 +113,6 @@
         <item>0</item>
         <item>Exit</item>
     </string-array>
-
     <array name="screenicons">
         <item>@drawable/xmark</item>
         <item>@drawable/home</item>
@@ -125,4 +124,23 @@
         <item>@drawable/back_arrow_1</item>
     </array>
     <string name="category_prompt">Select a category</string>
+
+    <array name="categories_array">
+        <item>All</item>
+        <item>Meditation basic</item>
+        <item>Success</item>
+        <item>Better Sleep</item>
+        <item>Relationship</item>
+        <item>Personal Growth</item>
+        <item>Focus</item>
+        <item>Stress relief</item>
+    </array>
+    <array name="languages_array">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Spanish</item>
+        <item>German</item>
+        <item>Gujarati</item>
+        <item>Sanskrit</item>
+    </array>
 </resources>

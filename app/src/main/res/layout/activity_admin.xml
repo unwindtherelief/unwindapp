@@ -68,6 +68,13 @@
                 android:src="@drawable/ic_event_management_ad" />
 
             <ImageView
+                android:id="@+id/btn_meditation_management"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_meditation_hub" />
+
+            <ImageView
                 android:id="@+id/btn_content_operation"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"

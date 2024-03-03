@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminActivity extends AppCompatActivity {
-    ImageView btn_assessment, btn_usermanagement, btn_doctor_management, btn_event_management, btn_content_operation;
+    ImageView btn_assessment, btn_usermanagement, btn_doctor_management, btn_event_management, btn_content_operation,btn_meditation_management;
     Animation animation;
 
     @Override
@@ -38,6 +38,7 @@ public class AdminActivity extends AppCompatActivity {
         btn_doctor_management = findViewById(R.id.btn_doctor_management);
         btn_event_management = findViewById(R.id.btn_event_management);
         btn_content_operation = findViewById(R.id.btn_content_operation);
+        btn_meditation_management = findViewById(R.id.btn_meditation_management);
 
         animation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom);
 
@@ -46,6 +47,16 @@ public class AdminActivity extends AppCompatActivity {
         btn_doctor_management.setAnimation(animation);
         btn_event_management.setAnimation(animation);
         btn_content_operation.setAnimation(animation);
+        btn_meditation_management.setAnimation(animation);
+
+
+        btn_meditation_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, MeditationManageAdminActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         btn_event_management.setOnClickListener(new View.OnClickListener() {

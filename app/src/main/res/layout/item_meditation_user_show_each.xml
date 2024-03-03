@@ -1,0 +1,72 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_135sdp"
+    android:layout_height="@dimen/_200sdp"
+    android:layout_margin="@dimen/_3sdp"
+    android:padding="@dimen/_3sdp"
+    app:cardCornerRadius="@dimen/_8sdp">
+
+
+    <ImageView
+        android:id="@+id/imageViewThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rainback" />
+
+
+    <RelativeLayout
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/linear_rounded_blur"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_meditation_lang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:padding="@dimen/_3sdp"
+            android:text="English"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_6ssp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/linear_blur_back">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingStart="@dimen/_5sdp"
+            android:text="Finding Clarity"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
+            android:id="@+id/text_medtation_creator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTitle"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/lato_light"
+            android:paddingStart="@dimen/_8sdp"
+            android:text="Vivek Parmar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

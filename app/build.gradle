@@ -110,5 +110,6 @@ dependencies {
     //qr code generator
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
-
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.17.1'
 }

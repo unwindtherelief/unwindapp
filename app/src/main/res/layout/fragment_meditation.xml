@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.MeditationFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/meditations"
+        android:textColor="@color/textcolor"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            android:text="@string/guided_meditation"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_18ssp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/lato_light"
+            android:text="@string/see_all"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_14ssp" />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_meditation_basic"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_meditation_basic" />
+
+
+            <ImageView
+                android:id="@+id/img_success"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_suucess" />
+
+            <ImageView
+                android:id="@+id/img_better_sleep"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_better_sleep" />
+
+            <ImageView
+                android:id="@+id/img_relationship"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_relationship" />
+
+            <ImageView
+                android:id="@+id/img_personal_growth"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_personal_growth" />
+
+            <ImageView
+                android:id="@+id/img_focus"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_focus" />
+
+            <ImageView
+                android:id="@+id/img_stress_relief"
+                android:layout_width="@dimen/_137sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:src="@drawable/img_stress_relief" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

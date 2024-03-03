@@ -29,6 +29,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.MeditationItemPlayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MeditationOfEachActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.MeditationDataAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.MeditationManageAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.BillGeneratedActivity"
             android:exported="false" />
         <activity

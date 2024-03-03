@@ -14,7 +14,7 @@ import com.depression.relief.depressionissues.databinding.ActivityMainBinding;
 import com.depression.relief.depressionissues.fragments.CommunityFragment;
 import com.depression.relief.depressionissues.fragments.ExploreFragment;
 import com.depression.relief.depressionissues.fragments.HomeFragment;
-import com.depression.relief.depressionissues.fragments.JournalFragment;
+import com.depression.relief.depressionissues.fragments.MeditationFragment;
 import com.depression.relief.depressionissues.fragments.ProfileFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.journaltab:
                         item.setChecked(true);
-                        replaced(new JournalFragment());
+                        replaced(new MeditationFragment());
                         break;
                     case R.id.communitytab:
                         item.setChecked(true);
