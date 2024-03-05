@@ -2,54 +2,66 @@ package com.depression.relief.depressionissues.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
+import android.graphics.Point;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.depression.relief.depressionissues.R;
-import com.google.android.exoplayer2.ExoPlayer;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.ui.PlayerView;
 
-public class MeditationItemPlayActivity extends AppCompatActivity {
-    private ImageView imageViewThumbnail;
+import java.io.IOException;
+
+public class MeditationItemPlayActivity extends AppCompatActivity implements Runnable {
     private TextView textViewTitle;
     private TextView textViewCreator;
     private TextView textViewLanguage;
+    private ImageView imageViewThumbnail;
     private SeekBar seekBar;
-    private ImageButton btnPrevious;
     private ImageButton btnPlayPause;
-    private ImageButton btnNext;
-    private TextView textViewCurrentTime;
-    private TextView textViewTotalTime;
+    private TextView textViewTimer;
 
     private Handler handler;
     private Runnable timerRunnable;
-    private SimpleExoPlayer exoPlayer; // Declare ExoPlayer
+    MediaPlayer mediaPlayer = new MediaPlayer();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meditation_item_play);
 
-        imageViewThumbnail = findViewById(R.id.imageViewThumbnail);
         textViewTitle = findViewById(R.id.textViewTitle);
         textViewCreator = findViewById(R.id.textViewCreator);
         textViewLanguage = findViewById(R.id.textViewLanguage);
+        imageViewThumbnail = findViewById(R.id.imageViewThumbnail);
         seekBar = findViewById(R.id.seekBar);
-        btnPrevious = findViewById(R.id.btnPrevious);
         btnPlayPause = findViewById(R.id.btnPlayPause);
-        btnNext = findViewById(R.id.btnNext);
-        textViewCurrentTime = findViewById(R.id.textViewCurrentTime);
-        textViewTotalTime = findViewById(R.id.textViewTotalTime);
+        textViewTimer = findViewById(R.id.textViewTimer);
 
         handler = new Handler();
+
+        imageViewThumbnail.post(()->{
+            Point point = new Point();
+            getWindowManager().getDefaultDisplay().getSize(point);
+            float width = imageViewThumbnail.getMeasuredWidth();
+            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(imageViewThumbnail, "translationX", 0, -(width - point.x));
+            objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
+            objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
+            objectAnimator.setDuration(2000);
+            objectAnimator.start();
+        });
 
         // Get data from intent
         String title = getIntent().getStringExtra("title");
@@ -59,33 +71,50 @@ public class MeditationItemPlayActivity extends AppCompatActivity {
         String audioUrl = getIntent().getStringExtra("audioUrl");
 
         // Set data to views
-        Glide.with(this).load(imageUrl).into(imageViewThumbnail);
         textViewTitle.setText(title);
         textViewCreator.setText("Creator: " + creator);
         textViewLanguage.setText("Language: " + language);
 
-        // Set up custom music player controls
-        setupCustomMusicPlayerControls(audioUrl);
-        handlePlayPauseButtonClick();
+        // Load and display the image
+        Glide.with(this).load(imageUrl).into(imageViewThumbnail);
+
+        if (!audioUrl.isEmpty()) {
+            // Initialize the MediaPlayer with an initial position of 0
+            // Set up the timer to update seekBar and time display
+            updateTimer(audioUrl);
+        } else {
+            Toast.makeText(this, "Network issue!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-    private void setupCustomMusicPlayerControls(String audioUrl) {
-        // Set up custom music player controls here
+    private void initializeMediaPlayer(String audioUrl, int initialPosition) {
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
-        // Example listeners (replace with your logic)
-        btnPrevious.setOnClickListener(v -> handlePreviousButtonClick());
-        btnPlayPause.setOnClickListener(v -> handlePlayPauseButtonClick());
-        btnNext.setOnClickListener(v -> handleNextButtonClick());
+        try {
+            mediaPlayer.setDataSource(audioUrl);
+            mediaPlayer.prepareAsync(); // Use prepareAsync to prepare in the background
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        // Example seekBar listener (replace with your logic)
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                seekBar.setMax(mediaPlayer.getDuration());
+                mediaPlayer.seekTo(initialPosition);
+                mediaPlayer.start(); // Start playing once prepared
+                btnPlayPause.setImageResource(android.R.drawable.ic_media_pause);
+            }
+        });
+    }
+
+    private void updateTimer(String audioUrl) {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    //
-                }
+                // Handle progress change
             }
-
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -94,40 +123,79 @@ public class MeditationItemPlayActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                // Handle tracking touch stop
+                if (mediaPlayer != null) {
+                    mediaPlayer.seekTo(seekBar.getProgress());
+                }
             }
         });
 
-        // Set up the timer to update seekBar and time display
-        updateTimer(audioUrl);
-    }
-
-    private void handlePreviousButtonClick() {
-        // Handle previous button click
-    }
-
-    private void handlePlayPauseButtonClick() {
-        if (exoPlayer != null) {
-            if (exoPlayer.isPlaying()) {
-                // If the player is currently playing, pause it
-                exoPlayer.pause();
-            } else {
-                // If the player is paused or stopped, start playing
-                exoPlayer.setPlayWhenReady(true);
+        btnPlayPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                    btnPlayPause.setImageResource(android.R.drawable.ic_media_play);
+                } else {
+                    mediaPlayer.start();
+                    btnPlayPause.setImageResource(android.R.drawable.ic_media_pause);
+                }
             }
+        });
+
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+
+        try {
+            mediaPlayer.setDataSource(audioUrl);
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
 
-    private void handleNextButtonClick() {
-        // Handle next button click
-    }
+        seekBar.setMax(mediaPlayer.getDuration());
 
-    private void updateTimer(String audioUrl) {
-        handler.postDelayed(timerRunnable = () -> {
-            // Update seekBar and time display logic
+        handler.postDelayed(timerRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (mediaPlayer != null) {
+                    int currentPosition = mediaPlayer.getCurrentPosition();
+                    int total = mediaPlayer.getDuration();
 
-            // Call itself every second
-            updateTimer(audioUrl);
+                    seekBar.setProgress(currentPosition);
+                    textViewTimer.setText(formatTime(currentPosition) + " / " + formatTime(total));
+
+                    handler.postDelayed(this, 1000);
+
+                    if (!mediaPlayer.isPlaying()) {
+                        btnPlayPause.setImageResource(android.R.drawable.ic_media_play);
+                    }
+                }
+            }
         }, 1000);
+
     }
+
+    private String formatTime(int milliseconds) {
+        int seconds = (milliseconds / 1000) % 60;
+        int minutes = (milliseconds / (1000 * 60)) % 60;
+        int hours = (milliseconds / (1000 * 60 * 60)) % 24;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
+    @Override
+    public void run() {
+        // Your run method logic here
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+        handler.removeCallbacks(timerRunnable);
+    }
+
 }

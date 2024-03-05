@@ -1,6 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swiperfLayoutstressrelief"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStressReleifMeditation"
@@ -20,3 +25,4 @@
         android:src="@drawable/ic_no_notifications" />
 
 </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

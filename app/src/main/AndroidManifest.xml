@@ -29,16 +29,34 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.BreathMotionShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BrethingExerciseActvity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.meditation.activities.QuickMeditationDataAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MeditationOfQuickEachActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.meditation.activities.ManageQuickMediAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.meditation.MeditationCategoryChooseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MeditationItemPlayActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MeditationOfEachActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.MeditationDataAddActivity"
+            android:name=".admin.meditation.activities.MeditationDataAddActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.MeditationManageAdminActivity"
+            android:name=".admin.meditation.activities.MeditationManageAdminActivity"
             android:exported="false" />
         <activity
             android:name=".activities.BillGeneratedActivity"

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
+import com.depression.relief.depressionissues.admin.meditation.MeditationCategoryChooseActivity;
 import com.depression.relief.depressionissues.admin.quetsions.QuestionAdapter;
 import com.depression.relief.depressionissues.admin.quetsions.QuestionData;
 import com.google.firebase.firestore.CollectionReference;
@@ -53,7 +54,7 @@ public class AdminActivity extends AppCompatActivity {
         btn_meditation_management.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminActivity.this, MeditationManageAdminActivity.class);
+                Intent intent = new Intent(AdminActivity.this, MeditationCategoryChooseActivity.class);
                 startActivity(intent);
             }
         });

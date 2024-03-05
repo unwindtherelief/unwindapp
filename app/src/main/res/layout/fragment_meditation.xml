@@ -6,104 +6,241 @@
     android:orientation="vertical"
     tools:context=".fragments.MeditationFragment">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="@font/lato_regular"
-        android:text="@string/meditations"
-        android:textColor="@color/textcolor"
-        android:textSize="@dimen/_20ssp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_regular"
-            android:text="@string/guided_meditation"
-            android:textColor="@color/textcolor"
-            android:textSize="@dimen/_18ssp" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:fontFamily="@font/lato_light"
-            android:text="@string/see_all"
-            android:textColor="@color/textcolor"
-            android:textSize="@dimen/_14ssp" />
-    </RelativeLayout>
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbars="horizontal">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/img_meditation_basic"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_meditation_basic" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/meditations"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/_22ssp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/guided_meditation"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_18ssp" />
 
 
-            <ImageView
-                android:id="@+id/img_success"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_suucess" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/lato_light"
+                    android:text="@string/see_all"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_14ssp" />
+            </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/img_better_sleep"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_better_sleep" />
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal">
 
-            <ImageView
-                android:id="@+id/img_relationship"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_relationship" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/img_personal_growth"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_personal_growth" />
+                    <ImageView
+                        android:id="@+id/img_meditation_basic"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_meditation_basic" />
 
-            <ImageView
-                android:id="@+id/img_focus"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_focus" />
 
-            <ImageView
-                android:id="@+id/img_stress_relief"
-                android:layout_width="@dimen/_137sdp"
-                android:layout_height="@dimen/_180sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:src="@drawable/img_stress_relief" />
+                    <ImageView
+                        android:id="@+id/img_success"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_suucess" />
+
+                    <ImageView
+                        android:id="@+id/img_better_sleep"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_better_sleep" />
+
+                    <ImageView
+                        android:id="@+id/img_relationship"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_relationship" />
+
+                    <ImageView
+                        android:id="@+id/img_personal_growth"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_personal_growth" />
+
+                    <ImageView
+                        android:id="@+id/img_focus"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_focus" />
+
+                    <ImageView
+                        android:id="@+id/img_stress_relief"
+                        android:layout_width="@dimen/_137sdp"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/img_stress_relief" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/quick_meditation"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_18ssp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/lato_light"
+                    android:text="@string/see_all"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_14ssp" />
+            </RelativeLayout>
+
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:scrollbars="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/btn_quick_personalGrowth"
+                        android:layout_width="@dimen/_165sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/ic_quick_personal_growth" />
+
+                    <ImageView
+                        android:id="@+id/btn_quick_motivation"
+                        android:layout_width="@dimen/_165sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/ic_quick_motivation" />
+
+                    <ImageView
+                        android:id="@+id/btn_quick_selfheal"
+                        android:layout_width="@dimen/_165sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/ic_quick_self_heal" />
+
+                    <ImageView
+                        android:id="@+id/btn_quick_stressrelief"
+                        android:layout_width="@dimen/_165sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/ic_quick_stress_relief" />
+
+                    <ImageView
+                        android:id="@+id/btn_quick_peace"
+                        android:layout_width="@dimen/_165sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/ic_quick_peace" />
+
+                    <ImageView
+                        android:id="@+id/btn_quick_focus"
+                        android:layout_width="@dimen/_165sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:src="@drawable/ic_quick_focus" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/do_it_yourself"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_18ssp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_130sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btn_brething_excercise"
+                    android:layout_width="@dimen/_135sdp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:src="@drawable/ic_breathig_exer_btn" />
+
+
+                <ImageView
+                    android:id="@+id/btn_chant_counter"
+                    android:layout_width="@dimen/_135sdp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:src="@drawable/ic_chant_counter_btn" />
+            </LinearLayout>
         </LinearLayout>
-    </HorizontalScrollView>
-
+    </ScrollView>
 </LinearLayout>

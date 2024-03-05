@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.BrethingExerciseActvity">
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_back2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/josefin_regular"
+            android:text="@string/breathing_excercise"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_20ssp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_cyan_ball" />
+
+
+            <LinearLayout
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ripplerectbg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:src="@drawable/ic_event_time_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="Count"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_15ssp" />
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/countNumberPicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    app:np_dividerColor="@color/transparent"
+                    app:np_itemSpacing="@dimen/_3sdp"
+                    app:np_max="30"
+                    app:np_min="1"
+                    app:np_selectedTextColor="@color/textcolor"
+                    app:np_selectedTextSize="@dimen/_20ssp"
+                    app:np_textColor="@color/textcolorhint" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_3sdp">
+
+                    <LinearLayout
+                        android:id="@+id/lnr_breath_relax"
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_relax_breath" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="bottom"
+                            android:text=" Relaxing\nBreathing"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/textcolorhint"
+                            android:textSize="@dimen/_11ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_breath_deep"
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_deep_breath" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="bottom"
+                            android:text=" Deep\nBreathing"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/textcolorhint"
+                            android:textSize="@dimen/_11ssp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_breath_belly"
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_belly_breath" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="bottom"
+                            android:text=" Belly\nBreathing"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/textcolorhint"
+                            android:textSize="@dimen/_11ssp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_breath_counting"
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_counting_breath" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="bottom"
+                            android:text=" Counting\nBreathing"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/textcolorhint"
+                            android:textSize="@dimen/_11ssp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_breath_resonant"
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_resonant_breath" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="bottom"
+                            android:text=" Resonant\nBreathing"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/textcolorhint"
+                            android:textSize="@dimen/_11ssp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/btnStart"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_btn_start" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

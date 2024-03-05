@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,8 @@ public class StressReliefMeditationFragment extends Fragment implements Meditati
     private FirebaseFirestore firestore;
     private CollectionReference meditationCollection;
     ImageView img_no_item;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     public StressReliefMeditationFragment() {
     }
@@ -50,6 +53,10 @@ public class StressReliefMeditationFragment extends Fragment implements Meditati
 
         recyclerViewStressReleifMeditation = view.findViewById(R.id.recyclerViewStressReleifMeditation);
         img_no_item = view.findViewById(R.id.img_no_item);
+        swipeRefreshLayout = view.findViewById(R.id.swiperfLayoutstressrelief);
+
+        swipeRefreshLayout.setOnRefreshListener(this::refreshData);
+
         recyclerViewStressReleifMeditation.setLayoutManager(new GridLayoutManager(getContext(), 2)); // Adjust the span count as needed
         meditationAdapter = new MeditationAdapter(getContext(), meditationList, position -> onDeleteClick(position));
         recyclerViewStressReleifMeditation.setAdapter(meditationAdapter);
@@ -59,6 +66,13 @@ public class StressReliefMeditationFragment extends Fragment implements Meditati
 
 
         return view;
+    }
+
+    private void refreshData() {
+        // This method is called when a user pulls down to refresh
+        loadDataFromFirestore();
+        // Stop the refreshing animation
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void loadDataFromFirestore() {

@@ -142,6 +142,10 @@
     <string name="meditations">Meditations</string>
     <string name="see_all">See All</string>
     <string name="meditation_details">Meditation Details</string>
+    <string name="quick_meditation">Quick Meditation</string>
+    <string name="do_it_yourself">Do it Your Self</string>
+    <string name="breathing_excercise">Breathing Exercise</string>
+    <string name="breathing">Breathing</string>
 
 
 </resources>

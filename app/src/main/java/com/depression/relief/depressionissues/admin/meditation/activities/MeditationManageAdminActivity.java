@@ -1,12 +1,9 @@
-package com.depression.relief.depressionissues.admin;
-
+package com.depression.relief.depressionissues.admin.meditation.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.admin.meditation.MeditationPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -30,7 +27,7 @@ public class MeditationManageAdminActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         meditationCollection = firestore.collection("meditations");
 
-        MeditationPagerAdapter pagerAdapter = new MeditationPagerAdapter(getSupportFragmentManager(), 8);
+        MeditationPagerAdapter pagerAdapter = new MeditationPagerAdapter(getSupportFragmentManager(), 6);
         viewPager_tab.setAdapter(pagerAdapter);
 
         // Set up TabLayout with ViewPager

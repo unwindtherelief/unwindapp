@@ -125,6 +125,15 @@
     </array>
     <string name="category_prompt">Select a category</string>
 
+    <array name="quick_categories_array">
+        <item>Personal Growth</item>
+        <item>Motivation</item>
+        <item>Self Healing</item>
+        <item>Stress Relief</item>
+        <item>Peace</item>
+        <item>Focus</item>
+    </array>
+
     <array name="categories_array">
         <item>All</item>
         <item>Meditation basic</item>
