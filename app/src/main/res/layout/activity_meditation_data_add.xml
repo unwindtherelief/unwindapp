@@ -64,10 +64,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/imageView"
                     android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:backgroundTint="@color/textcolor"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="Input Meditation Title"
                     android:inputType="text"
-                    android:backgroundTint="@color/textcolor"
                     android:textColor="@color/textcolor"
                     android:textColorHint="@color/textcolorhint"
                     android:textSize="@dimen/_13ssp" />
@@ -90,9 +90,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:backgroundTint="@color/textcolor"
                         android:fontFamily="@font/poppins_regular"
                         android:hint="Input Creator Name"
-                        android:backgroundTint="@color/textcolor"
                         android:inputType="text"
                         android:textColor="@color/textcolor"
                         android:textColorHint="@color/textcolorhint"
@@ -142,8 +142,8 @@
                         android:id="@+id/spinnerLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/textcolor"
                         android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:backgroundTint="@color/textcolor"
                         android:hint="Select Language for language selecting"
                         android:prompt="@string/category_prompt" />
                 </LinearLayout>
@@ -152,8 +152,8 @@
                     android:id="@+id/relativeLayoutUpload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_5sdp"
-                    android:layout_marginHorizontal="@dimen/_3sdp">
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:layout_marginVertical="@dimen/_5sdp">
 
                     <ImageView
                         android:layout_width="wrap_content"

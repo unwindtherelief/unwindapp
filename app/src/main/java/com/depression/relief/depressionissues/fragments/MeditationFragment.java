@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.activities.BrethingExerciseActvity;
+import com.depression.relief.depressionissues.activities.ChantCounterActivity;
 import com.depression.relief.depressionissues.activities.MeditationOfEachActivity;
 import com.depression.relief.depressionissues.activities.MeditationOfQuickEachActivity;
 
@@ -52,7 +53,14 @@ public class MeditationFragment extends Fragment {
         btn_brething_excercise = view.findViewById(R.id.btn_brething_excercise);
         btn_chant_counter = view.findViewById(R.id.btn_chant_counter);
 
-
+        btn_chant_counter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ChantCounterActivity.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateCard(getActivity());
+            }
+        });
         btn_brething_excercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

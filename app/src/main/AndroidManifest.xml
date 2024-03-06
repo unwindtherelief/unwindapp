@@ -29,6 +29,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".DoctorAuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.doctor.DoctorAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChantShlokActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChantCounterActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.BreathMotionShowActivity"
             android:exported="false" />
         <activity

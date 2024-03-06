@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_chnat_screen"
+    tools:context=".activities.ChantShlokActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/ripplerectbg">
+
+        <TextView
+            android:id="@+id/tvShlok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/shlok1"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_18ssp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_105sdp"
+        android:layout_above="@id/vspace_view"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_count_view"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/tvBeedCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="108"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_22ssp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_horizontal"
+            android:text="Count"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_16ssp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vspace_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

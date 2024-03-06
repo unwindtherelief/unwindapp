@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
+import com.depression.relief.depressionissues.admin.doctor.DoctorAddActivity;
 import com.depression.relief.depressionissues.admin.meditation.MeditationCategoryChooseActivity;
 import com.depression.relief.depressionissues.admin.quetsions.QuestionAdapter;
 import com.depression.relief.depressionissues.admin.quetsions.QuestionData;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminActivity extends AppCompatActivity {
-    ImageView btn_assessment, btn_usermanagement, btn_doctor_management, btn_event_management, btn_content_operation,btn_meditation_management;
+    ImageView btn_assessment, btn_usermanagement, btn_doctor_management, btn_event_management, btn_content_operation, btn_meditation_management;
     Animation animation;
 
     @Override
@@ -49,6 +50,14 @@ public class AdminActivity extends AppCompatActivity {
         btn_event_management.setAnimation(animation);
         btn_content_operation.setAnimation(animation);
         btn_meditation_management.setAnimation(animation);
+
+        btn_doctor_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, DoctorAddActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         btn_meditation_management.setOnClickListener(new View.OnClickListener() {

@@ -146,6 +146,9 @@
     <string name="do_it_yourself">Do it Your Self</string>
     <string name="breathing_excercise">Breathing Exercise</string>
     <string name="breathing">Breathing</string>
+    <string name="chant_counter">Chant Counter</string>
+    <string name="select_a_mantra_to_chant">Select a Mantra to Chant</string>
+    <string name="shlok1">Asato Ma Sad Gamaya,\n Tamaso Ma Jyotir Gamaya,\n Mrityor Ma Amritam Gamaya\n</string>
 
 
 </resources>

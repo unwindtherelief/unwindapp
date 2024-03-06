@@ -113,6 +113,15 @@
         <item>0</item>
         <item>Exit</item>
     </string-array>
+
+    <string-array name="bead_numbers" >
+        <item>1</item>
+        <item>11</item>
+        <item>21</item>
+        <item>54</item>
+        <item>108</item>
+    </string-array>
+
     <array name="screenicons">
         <item>@drawable/xmark</item>
         <item>@drawable/home</item>

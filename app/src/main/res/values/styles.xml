@@ -22,4 +22,11 @@
         <item name="android:textColorSecondary">@android:color/black</item>
     </style>
 
+    <style name="SpinnerTheme" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:textColorHint">@color/textcolorhint
+        </item>
+    </style>
+
+
 </resources>
