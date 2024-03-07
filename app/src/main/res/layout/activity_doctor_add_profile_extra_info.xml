@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_splash_bg"
+    android:orientation="vertical"
+    tools:context=".specialist.DoctorAddProfileExtraInfoActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp" />
+
+    <ImageView
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@drawable/logo_unwind" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/josefin_regular"
+        android:gravity="center"
+        android:text="Add Your Details"
+        android:textColor="@color/textcolor"
+        android:textSize="@dimen/_16ssp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/ripplerectbg3"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/ic_specialisation_icon" />
+
+        <Spinner
+            android:id="@+id/spinnerSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:backgroundTint="@color/textcolor"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
+            android:prompt="@string/select_specialization" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/ripplerectbg3"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/ic_experience_logo" />
+
+        <Spinner
+            android:id="@+id/spinnerExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:backgroundTint="@color/textcolor"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
+            android:prompt="@string/select_experience" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/checkboxContainerLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerSpecialization"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <CheckBox
+            android:id="@+id/checkboxEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/english"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor" />
+
+        <CheckBox
+            android:id="@+id/checkboxHindi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/hindi"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor" />
+
+        <CheckBox
+            android:id="@+id/checkboxMarathi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/marathi"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <CheckBox
+            android:id="@+id/checkboxGujarati"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/gujarati"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor" />
+
+        <CheckBox
+            android:id="@+id/checkboxSpanish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/spanish"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor" />
+
+        <CheckBox
+            android:id="@+id/checkboxGerman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/german"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtSelfDescription"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@id/spinnerExperience"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/ripplerectbg3"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="start"
+        android:hint="@string/self_description"
+        android:padding="@dimen/_10sdp"
+        android:textAlignment="textStart"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolorhint" />
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@id/edtSelfDescription"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:backgroundTint="@color/textcolorhint"
+        android:elevation="@dimen/_10sdp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:shadowColor="@color/black"
+        android:text="Continue" />
+
+
+</LinearLayout>

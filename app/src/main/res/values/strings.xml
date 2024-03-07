@@ -149,6 +149,17 @@
     <string name="chant_counter">Chant Counter</string>
     <string name="select_a_mantra_to_chant">Select a Mantra to Chant</string>
     <string name="shlok1">Asato Ma Sad Gamaya,\n Tamaso Ma Jyotir Gamaya,\n Mrityor Ma Amritam Gamaya\n</string>
+    <string name="select_specialization">Specialisation</string>
+    <string name="english">English</string>
+    <string name="hindi">Hindi</string>
+    <string name="marathi">Marathi</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="spanish">Spanish</string>
+    <string name="german">German</string>
+    <string name="select_experience">Experience</string>
+    <string name="self_description">About your self</string>
+    <string name="Welcome_to_unwind">Welcome to Unwind</string>
+    <string name="doctor_auth">Doctor Login</string>
 
 
 </resources>

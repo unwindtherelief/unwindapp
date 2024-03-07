@@ -23,9 +23,8 @@
     </style>
 
     <style name="SpinnerTheme" parent="Widget.AppCompat.Spinner">
-        <item name="android:textColor">@color/textcolor</item>
-        <item name="android:textColorHint">@color/textcolorhint
-        </item>
+        <item name="android:textColor">@android:color/widget_edittext_dark</item>
+        <item name="android:textColorHint">@android:color/widget_edittext_dark</item>
     </style>
 
 

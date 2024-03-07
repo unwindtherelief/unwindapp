@@ -97,6 +97,6 @@ public class AdminActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Animatoo.INSTANCE.animateShrink(this);
+        Animatoo.INSTANCE.animateSlideDown(this);
     }
 }

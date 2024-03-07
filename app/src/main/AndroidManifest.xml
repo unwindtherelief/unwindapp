@@ -29,7 +29,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DoctorAuthActivity"
+            android:name=".specialist.DoctorHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".specialist.DoctorAddProfileExtraInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".specialist.DoctorAddProfileDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".specialist.DoctorAuthActivity"
             android:exported="false" />
         <activity
             android:name=".admin.doctor.DoctorAddActivity"

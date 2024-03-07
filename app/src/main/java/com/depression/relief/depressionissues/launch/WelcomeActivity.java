@@ -56,6 +56,6 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Animatoo.INSTANCE.animateShrink(this);
+        Animatoo.INSTANCE.animateSlideDown(this);
     }
 }

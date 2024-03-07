@@ -4,42 +4,166 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/ic_splash_bg"
     android:orientation="vertical"
     tools:context=".specialist.DoctorAuthActivity">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp" />
-
-    <EditText
-        android:id="@+id/edtAuthDoctorId"
+    <RelativeLayout
+        android:id="@+id/rl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginVertical="@dimen/_5sdp"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Enter your doctor id!"
-        android:textColor="@color/textcolor"
-        android:textColorHint="@color/textcolorhint" />
+        android:layout_margin="@dimen/_5sdp">
 
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_back2" />
 
-    <EditText
-        android:id="@+id/edtAuthDoctorPassword"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/josefin_regular"
+            android:text="@string/doctor_auth"
+            android:textColor="@color/textcolor"
+            android:textSize="@dimen/_20ssp" />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginVertical="@dimen/_5sdp"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Enter your password!"
-        android:textColor="@color/textcolor"
-        android:textColorHint="@color/textcolorhint" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnDoctorAuth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="@dimen/_5sdp"
-        android:text="Login Doctor" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:src="@drawable/img_doctor_auth" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:fontFamily="@font/josefin_regular"
+                android:gravity="center_horizontal"
+                android:text="@string/Welcome_to_unwind"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/_16ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/josefin_medium"
+                android:gravity="center_horizontal"
+                android:text="Enter your email to facilitate\n personalized counseling for users"
+                android:textAlignment="gravity"
+                android:textColor="@color/textcolorhint"
+                android:textSize="@dimen/_12ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:background="@drawable/ripplerectbg3"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/email_img" />
+
+                <EditText
+                    android:id="@+id/edtAuthDoctorId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:backgroundTint="@color/transparent"
+                    android:fontFamily="@font/josefin_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Enter your doctor id!"
+                    android:inputType="text"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/textcolorhint" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/ripplerectbg3"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/_3sdp"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/password_img" />
+
+                <EditText
+                    android:id="@+id/edtAuthDoctorPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_weight="1.5"
+                    android:backgroundTint="@color/transparent"
+                    android:fontFamily="@font/josefin_regular"
+                    android:hint="Enter your password!"
+                    android:inputType="textPassword"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/textcolorhint" />
+
+                <ImageView
+                    android:id="@+id/eye_toggle"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="0.3"
+                    android:padding="@dimen/_3sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_open_eye_toggle" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDoctorAuth"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="@color/textcolorhint"
+                android:elevation="@dimen/_10sdp"
+                android:outlineAmbientShadowColor="@color/black"
+                android:outlineSpotShadowColor="@color/black"
+                android:shadowColor="@color/black"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

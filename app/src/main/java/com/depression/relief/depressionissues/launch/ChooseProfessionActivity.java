@@ -11,9 +11,10 @@ import android.widget.ImageView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.admin.AdminActivity;
+import com.depression.relief.depressionissues.specialist.DoctorAuthActivity;
 
 public class ChooseProfessionActivity extends AppCompatActivity {
-    ImageView btn_admingo, btn_usergo;
+    ImageView btn_admingo, btn_usergo, btn_specialistgo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,16 @@ public class ChooseProfessionActivity extends AppCompatActivity {
 
         btn_admingo = findViewById(R.id.btn_admingo);
         btn_usergo = findViewById(R.id.btn_usergo);
+        btn_specialistgo = findViewById(R.id.btn_specialistgo);
+
+        btn_specialistgo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_specialistgo.setImageResource(R.drawable.ic_specialist_profession_clicked);
+                Intent intent = new Intent(ChooseProfessionActivity.this, DoctorAuthActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_admingo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +55,7 @@ public class ChooseProfessionActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
-        Animatoo.INSTANCE.animateShrink(this);
+        finishAffinity();
+        Animatoo.INSTANCE.animateSlideDown(this);
     }
 }
