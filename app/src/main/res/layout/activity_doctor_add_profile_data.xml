@@ -73,6 +73,37 @@
                     android:src="@drawable/user_img" />
 
                 <EditText
+                    android:id="@+id/edtDoctorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:backgroundTint="@color/transparent"
+                    android:fontFamily="@font/josefin_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Enter your name"
+                    android:inputType="text"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/black_50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_3sdp"
+                android:background="@drawable/ripplerectbg3"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/user_img" />
+
+                <EditText
                     android:id="@+id/edtHospitalName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -186,7 +217,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp" />
+                android:layout_height="@dimen/_20sdp" />
 
             <Button
                 android:id="@+id/btnContinue"

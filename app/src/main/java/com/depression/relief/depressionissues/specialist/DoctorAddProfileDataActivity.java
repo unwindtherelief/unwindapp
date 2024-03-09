@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.depression.relief.depressionissues.R;
 
 public class DoctorAddProfileDataActivity extends AppCompatActivity {
-    private EditText edtHospitalName, edtPincode, edtAddress, edtshopename;
+    private EditText edtHospitalName, edtPincode, edtAddress, edtshopename,edtDoctorName;
     private Button btnPickAddress, btnContinue;
     private String doctorId;
     private String doctorPassword;
@@ -33,6 +33,7 @@ public class DoctorAddProfileDataActivity extends AppCompatActivity {
         img_doctor = findViewById(R.id.img_doctor);
         btnContinue = findViewById(R.id.btnContinue);
         edtshopename = findViewById(R.id.edtshopename);
+        edtDoctorName = findViewById(R.id.edtDoctorName);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -59,10 +60,11 @@ public class DoctorAddProfileDataActivity extends AppCompatActivity {
 
     private void continueToProfileExtraInfo() {
         String hospitalName = edtHospitalName.getText().toString().trim();
+        String doctorname = edtDoctorName.getText().toString().trim();
         String pincode = edtPincode.getText().toString().trim();
         String address = edtAddress.getText().toString().trim();
         String shopename = edtshopename.getText().toString().trim();
-        String shopFullAddress = shopename + " " + address;
+        String shopFullAddress = shopename + " " + address+ "-" + pincode;
 
         if (hospitalName.isEmpty() || pincode.isEmpty() || address.isEmpty() || shopFullAddress.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
@@ -75,7 +77,8 @@ public class DoctorAddProfileDataActivity extends AppCompatActivity {
             intent.putExtra("address", shopFullAddress);
             intent.putExtra("doctorId", doctorId);
             intent.putExtra("doctorPassword", doctorPassword);
-            intent.putExtra("imageUri", imageUri.toString());
+            intent.putExtra("doctorImageUri", imageUri.toString());
+            intent.putExtra("doctorName", doctorname);
             startActivity(intent);
         }
     }

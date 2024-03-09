@@ -29,6 +29,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.ShowOnlineWebinarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ShowBookedSeminarDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SeminarPaymentHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SeminarFullInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SeminarListActivity"
+            android:exported="false" />
+        <activity
             android:name=".specialist.DoctorHomeActivity"
             android:exported="false" />
         <activity

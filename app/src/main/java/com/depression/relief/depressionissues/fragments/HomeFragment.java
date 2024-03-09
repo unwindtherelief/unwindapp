@@ -44,6 +44,7 @@ import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.activities.JournalActivity;
 import com.depression.relief.depressionissues.activities.MusicActivity;
 import com.depression.relief.depressionissues.activities.NotificationActivity;
+import com.depression.relief.depressionissues.activities.SeminarListActivity;
 import com.depression.relief.depressionissues.adapters.CategoryAdapter;
 import com.depression.relief.depressionissues.adapters.ViewPagerAdapter;
 import com.depression.relief.depressionissues.ai.ChatbotActivity;
@@ -84,7 +85,7 @@ public class HomeFragment extends Fragment {
     TextView quotetextview, txt_progressdata, username;
     LinearLayout btn_mood_track;
     ProgressBar progress_bar;
-    ImageView btn_whatonyourmind, btn_notifications;
+    ImageView btn_whatonyourmind, btn_notifications, sessionbook;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
 
@@ -111,6 +112,7 @@ public class HomeFragment extends Fragment {
         btn_whatonyourmind = view.findViewById(R.id.btn_whatonyourmind);
         username = view.findViewById(R.id.username);
         btn_notifications = view.findViewById(R.id.btn_notifications);
+        sessionbook = view.findViewById(R.id.sessionbook);
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -131,6 +133,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), NotificationActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        sessionbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SeminarListActivity.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateSlideUp(getActivity());
             }
         });
 

@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         item.setChecked(true);
                         replaced(new ExploreFragment());
                         break;
-                    case R.id.journaltab:
+                    case R.id.meditationtab:
                         item.setChecked(true);
                         replaced(new MeditationFragment());
                         break;

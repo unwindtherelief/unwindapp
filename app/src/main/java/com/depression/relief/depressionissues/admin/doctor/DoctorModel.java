@@ -14,7 +14,7 @@ public class DoctorModel {
     private String experience;
     private String selfDescription;
     private String imageUri; // New field to store image URI
-
+    private String doctorName;
 
     public DoctorModel() {
     }
@@ -119,5 +119,13 @@ public class DoctorModel {
 
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
 }

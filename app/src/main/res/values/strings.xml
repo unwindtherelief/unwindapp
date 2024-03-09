@@ -160,6 +160,11 @@
     <string name="self_description">About your self</string>
     <string name="Welcome_to_unwind">Welcome to Unwind</string>
     <string name="doctor_auth">Doctor Login</string>
+    <string name="profile">Profile</string>
+    <string name="seminar">Seminar</string>
+    <string name="description">Description</string>
+    <string name="seminar_host">Seminar Host</string>
+    <string name="about_seminar">About Seminar</string>
 
 
 </resources>

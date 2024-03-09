@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.depression.relief.depressionissues.R;
 import com.depression.relief.depressionissues.admin.doctor.DoctorModel;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -25,6 +27,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +47,10 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
     private String hospitalName;
     private String pincode;
     private String address;
+    private String doctorName;
 
     private CollectionReference doctorsCollection;
+    private StorageReference storageReference;
 
 
     @Override
@@ -65,6 +72,7 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         doctorsCollection = db.collection("doctors");
+        storageReference = FirebaseStorage.getInstance().getReference("doctorImages");
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -73,6 +81,7 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
             hospitalName = intent.getStringExtra("hospitalName");
             pincode = intent.getStringExtra("pincode");
             address = intent.getStringExtra("address");
+            doctorName = intent.getStringExtra("doctorName");
 //            Toast.makeText(this, "doctorID" + doctorId + "doctor password " + doctorPassword, Toast.LENGTH_SHORT).show();
         }
 
@@ -132,7 +141,11 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
         }
 
         String selfDescription = edtSelfDescription.getText().toString().trim();
+        // Upload image to Firebase Storage
+        Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
+        uploadImage(imageUri, specialization, experience, selectedLanguages, selfDescription);
 
+/*
         doctorsCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -151,6 +164,7 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
                             document.getReference().update("pincode", pincode);
                             document.getReference().update("address", address);
                             document.getReference().update("hospitalName", hospitalName);
+                            document.getReference().update("doctorName", doctorName);
                             String imageUriString = getIntent().getStringExtra("imageUri");
                             if (imageUriString != null) {
                                 // Image URI is available, save it to Firestore
@@ -159,6 +173,8 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
 
                             Toast.makeText(DoctorAddProfileExtraInfoActivity.this, "Data updated successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(DoctorAddProfileExtraInfoActivity.this, DoctorHomeActivity.class);
+                            intent.putExtra("doctorId", doctorId);
+                            intent.putExtra("doctorPassword", doctorPassword);
                             startActivity(intent);
                             Animatoo.INSTANCE.animateCard(DoctorAddProfileExtraInfoActivity.this);
                             return;
@@ -173,5 +189,81 @@ public class DoctorAddProfileExtraInfoActivity extends AppCompatActivity {
                 }
             }
         });
+*/
+    }
+
+    private void uploadImage(Uri imageUri, String specialization, String experience, List<String> selectedLanguages, String selfDescription) {
+        if (imageUri != null) {
+            StorageReference fileReference = storageReference.child(System.currentTimeMillis() + ".jpg");
+            UploadTask uploadTask = fileReference.putFile(imageUri);
+
+            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return fileReference.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        updateFirestore(specialization, experience, selectedLanguages, selfDescription, downloadUri);
+                    } else {
+                        Toast.makeText(DoctorAddProfileExtraInfoActivity.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(DoctorAddProfileExtraInfoActivity.this, "Image URI is null", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void updateFirestore(String specialization, String experience, List<String> selectedLanguages, String selfDescription, Uri downloadUri) {
+        doctorsCollection.whereEqualTo("doctorId", doctorId)
+                .whereEqualTo("doctorPassword", doctorPassword)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            if (!task.getResult().isEmpty()) {
+                                // Matching document found
+                                QueryDocumentSnapshot document = (QueryDocumentSnapshot) task.getResult().getDocuments().get(0);
+
+                                // Update the existing document with new data
+                                document.getReference().update("specialization", specialization);
+                                document.getReference().update("languages", selectedLanguages.toString());
+                                document.getReference().update("experience", experience);
+                                document.getReference().update("selfDescription", selfDescription);
+                                document.getReference().update("pincode", pincode);
+                                document.getReference().update("address", address);
+                                document.getReference().update("hospitalName", hospitalName);
+                                document.getReference().update("doctorName", doctorName);
+
+                                // Save the image URL to Firestore
+                                if (downloadUri != null) {
+                                    document.getReference().update("doctorImageUri", downloadUri.toString());
+                                }
+
+                                Toast.makeText(DoctorAddProfileExtraInfoActivity.this, "Data updated successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(DoctorAddProfileExtraInfoActivity.this, DoctorHomeActivity.class);
+                                intent.putExtra("doctorId", doctorId);
+                                intent.putExtra("doctorPassword", doctorPassword);
+                                startActivity(intent);
+                                Animatoo.INSTANCE.animateCard(DoctorAddProfileExtraInfoActivity.this);
+                            } else {
+                                Toast.makeText(DoctorAddProfileExtraInfoActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(DoctorAddProfileExtraInfoActivity.this, "Error fetching doctor: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Log.e("FirestoreError", "Error fetching doctor", task.getException());
+                        }
+                    }
+                });
     }
 }

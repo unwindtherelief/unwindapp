@@ -10,9 +10,9 @@
         android:icon="@drawable/ic_explore"
         android:title="Explore" />
     <item
-        android:id="@+id/journaltab"
-        android:icon="@drawable/ic_journal"
-        android:title="Journal" />
+        android:id="@+id/meditationtab"
+        android:icon="@drawable/ic_seminartab"
+        android:title="Meditation" />
     <item
         android:id="@+id/communitytab"
         android:icon="@drawable/ic_community"
